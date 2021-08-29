@@ -61,6 +61,39 @@ async function createWindow() {
 		}
 	})
 	autoUpdater.checkForUpdates()
+
+	const sendStatusToWindow = (text) => {
+		if (win) {
+			win.webContents.send("message", text)
+		}
+	}
+	autoUpdater.on("checking-for-update", () => {
+		sendStatusToWindow("Checking for update...")
+	})
+	autoUpdater.on("update-available", (info) => {
+		sendStatusToWindow("Update available.")
+	})
+	autoUpdater.on("update-not-available", (info) => {
+		sendStatusToWindow("Update not available.")
+	})
+	autoUpdater.on("error", (err) => {
+		sendStatusToWindow(`Error in auto-updater: ${err.toString()}`)
+	})
+	autoUpdater.on("download-progress", (progressObj) => {
+		sendStatusToWindow(
+			`Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}% (${progressObj.transferred} + '/' + ${progressObj.total} + )`
+		)
+	})
+	autoUpdater.on("update-downloaded", (info) => {
+		sendStatusToWindow("Update downloaded; will install now")
+	})
+
+	autoUpdater.on("update-downloaded", (info) => {
+		// Wait 5 seconds, then quit and install
+		// In your application, you don't need to wait 500 ms.
+		// You could call autoUpdater.quitAndInstall(); immediately
+		autoUpdater.quitAndInstall()
+	})
 }
 
 // Quit when all windows are closed.
@@ -93,39 +126,9 @@ app.on("ready", async () => {
 	createWindow()
 })
 
-const sendStatusToWindow = (text) => {
-	if (win) {
-		win.webContents.send("message", text)
-	}
-}
 
-autoUpdater.on("checking-for-update", () => {
-	sendStatusToWindow("Checking for update...")
-})
-autoUpdater.on("update-available", (info) => {
-	sendStatusToWindow("Update available.")
-})
-autoUpdater.on("update-not-available", (info) => {
-	sendStatusToWindow("Update not available.")
-})
-autoUpdater.on("error", (err) => {
-	sendStatusToWindow(`Error in auto-updater: ${err.toString()}`)
-})
-autoUpdater.on("download-progress", (progressObj) => {
-	sendStatusToWindow(
-		`Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}% (${progressObj.transferred} + '/' + ${progressObj.total} + )`
-	)
-})
-autoUpdater.on("update-downloaded", (info) => {
-	sendStatusToWindow("Update downloaded; will install now")
-})
 
-autoUpdater.on("update-downloaded", (info) => {
-	// Wait 5 seconds, then quit and install
-	// In your application, you don't need to wait 500 ms.
-	// You could call autoUpdater.quitAndInstall(); immediately
-	autoUpdater.quitAndInstall()
-})
+
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
