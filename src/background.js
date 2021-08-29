@@ -62,8 +62,12 @@ async function createWindow() {
 	})
 
 	function sendStatusToWindow(text) {
-		win.webContents.send("message", text)
+		dialog.showMessageBox(win, {
+			title: "Updater",
+			message: text,
+		})
 	}
+	autoUpdater.checkForUpdatesAndNotify()
 	autoUpdater.on("checking-for-update", () => {
 		sendStatusToWindow("Checking for update...")
 	})
