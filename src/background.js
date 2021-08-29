@@ -4,7 +4,7 @@ const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
-import { autoUpdater } from "electron-updater"
+updateApp = require("update-electron-app")
 const isDevelopment = process.env.NODE_ENV !== "production"
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
@@ -52,39 +52,12 @@ async function createWindow() {
 		// Load the index.html when not in development
 		win.loadURL("app://./index.html")
 	}
-	win.webContents.openDevTools()
 	ipcMain.on("quitApp", (event, arg) => {
 		if (arg === "quit") {
 			win.webContents.closeDevTools()
 			app.quit()
 			console.log("Exiting application")
 		}
-	})
-
-	function sendStatusToWindow(text) {
-		dialog.showMessageBox(win, {
-			title: "Updater",
-			message: text,
-		})
-	}
-	autoUpdater.checkForUpdatesAndNotify()
-	autoUpdater.on("checking-for-update", () => {
-		sendStatusToWindow("Checking for update...")
-	})
-	autoUpdater.on("update-available", (info) => {
-		sendStatusToWindow("Update available.")
-	})
-	autoUpdater.on("update-not-available", (info) => {
-		sendStatusToWindow("Update not available.")
-	})
-	autoUpdater.on("error", (err) => {
-		sendStatusToWindow("Error in auto-updater. " + err)
-	})
-	autoUpdater.on("download-progress", (progressObj) => {
-		sendStatusToWindow(log_message)
-	})
-	autoUpdater.on("update-downloaded", (info) => {
-		sendStatusToWindow("Update downloaded")
 	})
 }
 
@@ -103,9 +76,6 @@ app.on("activate", () => {
 	if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-app.on("ready", function() {
-	autoUpdater.checkForUpdatesAndNotify()
-})
 
 app.on("ready", async () => {
 	if (isDevelopment && !process.env.IS_TEST) {
@@ -116,6 +86,10 @@ app.on("ready", async () => {
 			console.error("Vue Devtools failed to install:", e.toString())
 		}
 	}
+	updateApp({
+		updateInterval: '1hour',
+		notifyUser: true
+	})
 	createWindow()
 })
 

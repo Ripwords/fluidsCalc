@@ -1,12 +1,9 @@
 {
   "name": "fluids_calc",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "author": "JJ Teoh",
   "description": "An Ionic project",
-  "repository": {
-    "url": "https://github.com/Ripwords/fluidsCalc"
-  },
-				
+  "repository": "https:://github.com/Ripwords/fluidsCalc",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
