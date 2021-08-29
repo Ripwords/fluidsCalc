@@ -4,8 +4,8 @@ const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
+import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== "production"
-const { autoUpdater } = require("electron-updater")
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
@@ -60,12 +60,9 @@ async function createWindow() {
 			console.log("Exiting application")
 		}
 	})
-	autoUpdater.checkForUpdates()
 
-	const sendStatusToWindow = (text) => {
-		if (win) {
-			win.webContents.send("message", text)
-		}
+	function sendStatusToWindow(text) {
+		win.webContents.send("message", text)
 	}
 	autoUpdater.on("checking-for-update", () => {
 		sendStatusToWindow("Checking for update...")
@@ -77,22 +74,13 @@ async function createWindow() {
 		sendStatusToWindow("Update not available.")
 	})
 	autoUpdater.on("error", (err) => {
-		sendStatusToWindow(`Error in auto-updater: ${err.toString()}`)
+		sendStatusToWindow("Error in auto-updater. " + err)
 	})
 	autoUpdater.on("download-progress", (progressObj) => {
-		sendStatusToWindow(
-			`Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}% (${progressObj.transferred} + '/' + ${progressObj.total} + )`
-		)
+		sendStatusToWindow(log_message)
 	})
 	autoUpdater.on("update-downloaded", (info) => {
-		sendStatusToWindow("Update downloaded; will install now")
-	})
-
-	autoUpdater.on("update-downloaded", (info) => {
-		// Wait 5 seconds, then quit and install
-		// In your application, you don't need to wait 500 ms.
-		// You could call autoUpdater.quitAndInstall(); immediately
-		autoUpdater.quitAndInstall()
+		sendStatusToWindow("Update downloaded")
 	})
 }
 
@@ -111,9 +99,10 @@ app.on("activate", () => {
 	if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+app.on("ready", function() {
+	autoUpdater.checkForUpdatesAndNotify()
+})
+
 app.on("ready", async () => {
 	if (isDevelopment && !process.env.IS_TEST) {
 		// Install Vue Devtools
@@ -125,10 +114,6 @@ app.on("ready", async () => {
 	}
 	createWindow()
 })
-
-
-
-
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
