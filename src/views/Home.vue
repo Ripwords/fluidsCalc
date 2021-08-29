@@ -18,12 +18,12 @@
                     </ion-card-header>
                 </ion-card>
 
-                <!-- <ion-card>
+                <ion-card>
                     <ion-card-header>
                         <ion-card-title>FIRST AUTO UPDATE</ion-card-title>
                         <ion-card-subtitle>Test for auto update feature</ion-card-subtitle>
                     </ion-card-header>
-                </ion-card> -->
+                </ion-card>
             </div>
         </ion-content>
         <Help></Help>
