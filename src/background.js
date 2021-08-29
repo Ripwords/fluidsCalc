@@ -60,18 +60,6 @@ async function createWindow() {
 		}
 	})
 
-	// autoUpdater.on("checking-for-update", () => {
-	// 	sendStatusToWindow("Checking for update...")
-	// })
-	// autoUpdater.on("update-available", (info) => {
-	// 	sendStatusToWindow("Update available.")
-	// })
-	// autoUpdater.on("update-not-available", (info) => {
-	// 	sendStatusToWindow("Update not available.")
-	// })
-	// autoUpdater.on("error", (err) => {
-	// 	sendStatusToWindow("Error in auto-updater. " + err)
-	// })
 	autoUpdater.on("update-downloaded", (info) => {
 		dialog
 			.showMessageBox(win, {
