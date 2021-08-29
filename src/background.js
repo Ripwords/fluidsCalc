@@ -81,8 +81,7 @@ async function createWindow() {
 			})
 			.then(
 				(restart) => {
-					app.relaunch({ args: process.argv.slice(1).concat(["--relaunch"]) })
-					app.exit(0)
+					autoUpdater.quitAndInstall()
 				},
 				(later) => {
 					dialog.showMessageBox(win, {
@@ -107,10 +106,6 @@ app.on("activate", () => {
 	// On macOS it's common to re-create a window in the app when the
 	// dock icon is clicked and there are no other windows open.
 	if (BrowserWindow.getAllWindows().length === 0) createWindow()
-})
-
-app.on("ready", function() {
-	autoUpdater.checkForUpdatesAndNotify()
 })
 
 app.on("ready", async () => {
