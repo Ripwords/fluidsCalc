@@ -1,7 +1,6 @@
 {
   "name": "fluids_calc",
-  "version": "0.2.12",
-  "private": true,
+  "version": "0.2.13",
   "author": "JJ Teoh",
   "description": "An Ionic project",
   "repository": {
