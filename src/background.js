@@ -97,10 +97,7 @@ app.on("ready", async () => {
 autoUpdater.on('update-downloaded', (info) => {
 	win.webContents.send('updateReady')
 });
-app.on('ready', function() {
-	createDefaultWindow();
-	autoUpdater.checkForUpdates();
-});
+
 ipcMain.on("quitAndInstall", (event, arg) => {
     autoUpdater.quitAndInstall();
 })
