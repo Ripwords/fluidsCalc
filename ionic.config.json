@@ -1,0 +1,7 @@
+{
+  "name": "fluidsCalc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

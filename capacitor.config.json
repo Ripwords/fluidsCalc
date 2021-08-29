@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "fluidsCalc",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
