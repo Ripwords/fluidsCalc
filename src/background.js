@@ -90,23 +90,27 @@ app.on("ready", async () => {
 		}
 	}
 	createWindow()
-})
-
-// app.on("ready", function() {
-// 	autoUpdater.checkForUpdatesAndNotify()
-// })
-
-app.on("ready", function() {
 	autoUpdater.checkForUpdates()
 })
+
 autoUpdater.on("update-available", (info) => {
 	console.log("update available")
+	dialog.showMessageBox(win, {
+		title: "Update Available!",
+		message: "The update will be automatically installed after the donwload is complete.",
+	})
 })
+
 autoUpdater.on("update-not-available", (info) => {
 	console.log("update not available")
 })
+
 autoUpdater.on("error", (err) => {
 	console.log("An error occurred")
+})
+
+autoUpdater.on("update-downloaded", (info) => {
+	autoUpdater.quitAndInstall()
 })
 
 // Exit cleanly on request from parent process in development mode.
