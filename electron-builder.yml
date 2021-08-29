@@ -1,4 +1,5 @@
 appId: com.Ripwords.fluidsCalc
+artifactName: "${productName}${version}.${ext}"
 publish:
   provider: github
   token: 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
