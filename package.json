@@ -1,12 +1,11 @@
 {
   "name": "fluids_calc",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "private": true,
   "author": "JJ Teoh",
   "description": "An Ionic project",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/Ripwords/fluidsCalc.git"
+    "url": "https://github.com/Ripwords/fluidsCalc"
   },
 				
   "scripts": {
