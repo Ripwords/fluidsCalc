@@ -86,11 +86,11 @@ app.on("ready", async () => {
 			console.error("Vue Devtools failed to install:", e.toString())
 		}
 	}
-	updateApp({
-		updateInterval: '1hour',
-		notifyUser: true
-	})
 	createWindow()
+	updateApp({
+		updateInterval: "1hour",
+		notifyUser: true,
+	})
 })
 
 // Exit cleanly on request from parent process in development mode.
