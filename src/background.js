@@ -1,7 +1,8 @@
 "use strict"
 
 const path = require("path")
-import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain, autoUpdater } from "electron"
+import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
+import { autoUpdater } from "eletron-updater"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 const isDevelopment = process.env.NODE_ENV !== "production"
@@ -93,6 +94,10 @@ app.on("ready", async () => {
 		}
 	}
 	createWindow()
+})
+
+app.on("ready", function() {
+	autoUpdater.checkForUpdatesAndNotify()
 })
 
 // Exit cleanly on request from parent process in development mode.
