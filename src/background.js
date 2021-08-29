@@ -4,6 +4,7 @@ const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
+import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== "production"
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
@@ -11,7 +12,7 @@ protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: tru
 async function createWindow() {
 	// Create the browser window.
 	const win = new BrowserWindow({
-		width: 1200,
+		width: 650,
 		height: 750,
 		frame: false,
 		webPreferences: {
@@ -58,6 +59,29 @@ async function createWindow() {
 			console.log("Exiting application")
 		}
 	})
+
+	function sendStatusToWindow(text) {
+		dialog.showMessageBox(win, {
+			title: "Updater",
+			message: text,
+		})
+	}
+
+	autoUpdater.on("checking-for-update", () => {
+		sendStatusToWindow("Checking for update...")
+	})
+	autoUpdater.on("update-available", (info) => {
+		sendStatusToWindow("Update available.")
+	})
+	autoUpdater.on("update-not-available", (info) => {
+		sendStatusToWindow("Update not available.")
+	})
+	autoUpdater.on("error", (err) => {
+		sendStatusToWindow("Error in auto-updater. " + err)
+	})
+	autoUpdater.on("update-downloaded", (info) => {
+		sendStatusToWindow("Update downloaded")
+	})
 }
 
 // Quit when all windows are closed.
@@ -75,6 +99,10 @@ app.on("activate", () => {
 	if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
+app.on("ready", function() {
+	autoUpdater.checkForUpdatesAndNotify()
+})
+
 app.on("ready", async () => {
 	if (isDevelopment && !process.env.IS_TEST) {
 		// Install Vue Devtools
@@ -85,11 +113,6 @@ app.on("ready", async () => {
 		}
 	}
 	createWindow()
-	const updateApp = require("update-electron-app")({ logger: require("electron-log") })
-	updateApp({
-		updateInterval: "1hour",
-		notifyUser: true,
-	})
 })
 
 // Exit cleanly on request from parent process in development mode.

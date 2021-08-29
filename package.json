@@ -1,9 +1,9 @@
 {
   "name": "fluids_calc",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "JJ Teoh",
   "description": "An Ionic project",
-  "repository": "https:://github.com/Ripwords/fluidsCalc",
+  "repository": "https://github.com/Ripwords/fluidsCalc",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -26,9 +26,7 @@
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
     "core-js": "^3.6.5",
-    "electron-log": "^4.4.1",
     "electron-updater": "^4.3.9",
-    "update-electron-app": "^2.0.1",
     "vue": "^3.2.1",
     "vue-router": "^4.0.0-0"
   },
