@@ -84,10 +84,7 @@ async function createWindow() {
 					autoUpdater.quitAndInstall()
 				},
 				(later) => {
-					dialog.showMessageBox(win, {
-						title: "Updater",
-						message: "The update will be installed at next launch.",
-					})
+					autoUpdater.checkForUpdatesAndNotify()
 				}
 			)
 	})
