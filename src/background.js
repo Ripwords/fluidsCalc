@@ -4,7 +4,6 @@ const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
-const updateApp = require("update-electron-app")
 const isDevelopment = process.env.NODE_ENV !== "production"
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
@@ -76,7 +75,6 @@ app.on("activate", () => {
 	if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-
 app.on("ready", async () => {
 	if (isDevelopment && !process.env.IS_TEST) {
 		// Install Vue Devtools
@@ -87,6 +85,7 @@ app.on("ready", async () => {
 		}
 	}
 	createWindow()
+	const updateApp = require("update-electron-app")({ logger: require("electron-log") })
 	updateApp({
 		updateInterval: "1hour",
 		notifyUser: true,
