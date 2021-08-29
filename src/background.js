@@ -1,11 +1,14 @@
 "use strict"
 
 const path = require("path")
-import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
+import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain, autoUpdater } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 const isDevelopment = process.env.NODE_ENV !== "production"
+const server = "vercel.com/ripwords/fluids-calc"
+const url = `${server}/update/${process.platform}/${app.getVersion()}`
 
+autoUpdater.setFeedURL({ url })
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
