@@ -60,27 +60,37 @@ async function createWindow() {
 		}
 	})
 
-	function sendStatusToWindow(text) {
-		dialog.showMessageBox(win, {
-			title: "Updater",
-			message: text,
-		})
-	}
-
-	autoUpdater.on("checking-for-update", () => {
-		sendStatusToWindow("Checking for update...")
-	})
-	autoUpdater.on("update-available", (info) => {
-		sendStatusToWindow("Update available.")
-	})
-	autoUpdater.on("update-not-available", (info) => {
-		sendStatusToWindow("Update not available.")
-	})
-	autoUpdater.on("error", (err) => {
-		sendStatusToWindow("Error in auto-updater. " + err)
-	})
+	// autoUpdater.on("checking-for-update", () => {
+	// 	sendStatusToWindow("Checking for update...")
+	// })
+	// autoUpdater.on("update-available", (info) => {
+	// 	sendStatusToWindow("Update available.")
+	// })
+	// autoUpdater.on("update-not-available", (info) => {
+	// 	sendStatusToWindow("Update not available.")
+	// })
+	// autoUpdater.on("error", (err) => {
+	// 	sendStatusToWindow("Error in auto-updater. " + err)
+	// })
 	autoUpdater.on("update-downloaded", (info) => {
-		sendStatusToWindow("Update downloaded")
+		dialog
+			.showMessageBox(win, {
+				title: "Updater",
+				message: "Update downloaded. Do you want to restart and update now?",
+				buttons: ["Restart Now", "Later"],
+			})
+			.then(
+				(restart) => {
+					app.relaunch({ args: process.argv.slice(1).concat(["--relaunch"]) })
+					app.exit(0)
+				},
+				(later) => {
+					dialog.showMessageBox(win, {
+						title: "Updater",
+						message: "The update will be installed at next launch.",
+					})
+				}
+			)
 	})
 }
 
