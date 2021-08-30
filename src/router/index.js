@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "@ionic/vue-router"
 import home from "../views/home.vue"
 import intrp from "../views/intrp.vue"
 import cRise from "../views/capillaryRise.vue"
+import bernoulli from "../views/bernoulli.vue"
 
 const routes = [
 	{
@@ -22,6 +23,11 @@ const routes = [
 		path: "/cRise",
 		name: "cRise",
 		component: cRise,
+	},
+	{
+		path: "/bernoulli",
+		name: "bernoulli",
+		component: bernoulli,
 	},
 ]
 

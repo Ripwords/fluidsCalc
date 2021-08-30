@@ -61,8 +61,7 @@ async function createWindow() {
 	})
 
 	autoUpdater.on("update-downloaded", (info) => {
-		dialog
-			.showMessageBox(win, {
+		dialog.showMessageBox(win, {
 				title: "Updater",
 				message: "Update downloaded. Do you want to restart and update now?",
 				buttons: ["Restart Now", "Later"],

@@ -9,23 +9,23 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>x<sub>1</sub> : </ion-label>
-                        <ion-input id="x1input" v-model="x1" type="number" placeholder="Enter x1" required="true"></ion-input>
+                        <ion-input v-model="x1" type="number" placeholder="Enter x1" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>x<sub>2</sub> : </ion-label>
-                        <ion-input id="x2input" v-model="x2" type="number" placeholder="Enter x2" required="true"></ion-input>
+                        <ion-input v-model="x2" type="number" placeholder="Enter x2" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>y<sub>1</sub> : </ion-label>
-                        <ion-input id="y1input" v-model="y1" type="number" placeholder="Enter y1" required="true"></ion-input>
+                        <ion-input v-model="y1" type="number" placeholder="Enter y1" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>y<sub>2</sub> : </ion-label>
-                        <ion-input id="y2input" v-model="y2" type="number" placeholder="Enter y2" required="true"></ion-input>
+                        <ion-input v-model="y2" type="number" placeholder="Enter y2" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>x<sub>0</sub> : </ion-label>
-                        <ion-input id="x0input" v-model="x0" type="number" placeholder="Enter x0" required="true"></ion-input>
+                        <ion-input v-model="x0" type="number" placeholder="Enter x0" required="true"></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>

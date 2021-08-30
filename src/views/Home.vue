@@ -17,6 +17,13 @@
 						<ion-card-subtitle>Calculates capillary action</ion-card-subtitle>
 					</ion-card-header>
 				</ion-card>
+
+				<ion-card button @click="menuNavigation('/bernoulli')">
+					<ion-card-header>
+						<ion-card-title>Bernoulli's Equation</ion-card-title>
+						<ion-card-subtitle>Calculates Bernoulli's Equation</ion-card-subtitle>
+					</ion-card-header>
+				</ion-card>
 			</div>
 		</ion-content>
 		<Help></Help>

@@ -11,6 +11,8 @@
                         <ion-input></ion-input>
                     </ion-item>
                 </ion-list>
+                <br>
+                <ion-button color="dark" @click="clear()" id="clear">Clear</ion-button>
             </div>
         </ion-content>
         <Help></Help>

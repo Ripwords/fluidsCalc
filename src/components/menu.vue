@@ -16,6 +16,9 @@
                 <ion-item button @click="menuNavigation('/cRise')">
                     <ion-label>Capillary Rise</ion-label>
                 </ion-item>
+                <ion-item button @click="menuNavigation('/bernoulli')">
+                    <ion-label>Bernoulli's Equation</ion-label>
+                </ion-item>
             </ion-list>
         </ion-content>
     </ion-menu>

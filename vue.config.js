@@ -11,7 +11,6 @@ module.exports = {
 				win: {
 					icon: "public/assets/icon/favicon.png",
 				},
-				
 			},
 		},
 	},
