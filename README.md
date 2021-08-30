@@ -1,3 +1,4 @@
-# fluidsCalc <img src="https://github.com/Ripwords/fluidsCalc/blob/master/public/assets/icon/favicon.png">
+# fluidsCalc <img src="https://github.com/Ripwords/fluidsCalc/blob/master/public/assets/icon/favicon.png" ="50" ="50">
 ## Fluid mechanics calculator Desktop App 
-![image](https://user-images.githubusercontent.com/58784686/131295953-b526df66-801f-4181-88ab-b83967696435.png)
+![image](https://user-images.githubusercontent.com/58784686/131296076-1f4c5ebf-ae99-4499-aad9-3f23121b2995.png)
+
