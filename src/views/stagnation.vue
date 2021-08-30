@@ -78,21 +78,21 @@ export default defineComponent({
     computed: {
         pStagShow() {
             if (this.p != "" && this.rho != "" && this.v != "") {
-                return parseFloat(this.p + (this.rho*this.v**2/2)).toFixed(5)
+                return parseFloat(parseFloat(this.p) + (this.rho * this.v**2)/2).toFixed(5)
             } else {
                 return ""
             }
         },
         pShow() {
             if (this.pStag != "" && this.rho != "" && this.v != "") {
-                return parseFloat(this.pStag - (this.rho*this.v**2/2)).toFixed(5)
+                return parseFloat(this.pStag - ((this.rho*this.v**2)/2)).toFixed(5)
             } else {
                 return ""
             }
         },
         rhoShow() {
             if (this.pStag != "" && this.p != "" && this.v != "") {
-                return parseFloat((this.pStag - this.p)/(this.v**2/2)).toFixed(5)
+                return parseFloat((this.pStag - this.p)/((this.v**2)/2)).toFixed(5)
             } else {
                 return ""
             }
