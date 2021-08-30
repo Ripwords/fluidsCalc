@@ -2,7 +2,7 @@
     <ion-menu menu-id="app-menu" side="start" content-id="main">
         <ion-header>
             <ion-toolbar>
-                <ion-title>Fluids Calculator</ion-title>
+                <ion-title>Fluids Calculator {{ title }}</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
@@ -47,6 +47,18 @@ export default {
         IonList,
         IonLabel
     },
+    beforeCreate() {
+        window.ipcRenderer.send("app_version")
+        window.ipcRenderer.receive("app_version", (args) => {
+            console.log(args.version)
+            this.title = "v" + args.version
+        })
+    },
+    data() {
+        return {
+            title: ""
+        }
+    },  
     methods:{
         menuNavigation(url){
             menuController.close("app-menu")

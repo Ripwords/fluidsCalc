@@ -1,6 +1,6 @@
 <template>
 	<ion-page>
-		<Header :title="title"></Header>
+		<Header title="Fluids Calculator"></Header>
 		<ion-content :fullscreen="true">
 			<Exit></Exit>
 			<div id="container">
@@ -58,18 +58,6 @@
 			Help,
 			Header,
 			Exit,
-		},
-		data() {
-			return {
-				title: "Fluids Calculator "
-			}
-		},
-		beforeCreate() {
-			window.ipcRenderer.send("app_version")
-			window.ipcRenderer.receive("app_version", (args) => {
-				console.log(args.version)
-				this.title += "v" + args.version
-			})
 		},
 		methods: {
 			menuNavigation(url) {
