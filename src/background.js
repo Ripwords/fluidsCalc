@@ -59,27 +59,34 @@ async function createWindow() {
 		}
 	})
 
-	autoUpdater.on("update-available", (info) => {
-		const response = dialog.showMessageBoxSync(win, {
-			title: "Updater",
-			message: "Update available. Do you want to download and update now?",
-			buttons: ["Download and Update Now", "Later"],
-		})
-		if (response == 0) {
-			autoUpdater.checkForUpdates()
-			autoUpdater.on("update-downloaded", (info) => {
-				autoUpdater.quitAndInstall()
-			})
-		} else if (response == 1) {
-			updateLater = true
-			dialog.showMessageBox(win, {
+	if (process.platform !== "darwin") {
+		autoUpdater.on("update-available", (info) => {
+			const response = dialog.showMessageBoxSync(win, {
 				title: "Updater",
-				message: "The update will be installed on application exit.",
+				message: "Update available. Do you want to download and update now?",
+				buttons: ["Download and Update Now", "Later"],
 			})
-		}
-	})
+			if (response == 0) {
+				autoUpdater.checkForUpdates()
+				autoUpdater.on("update-downloaded", (info) => {
+					autoUpdater.quitAndInstall()
+				})
+			} else if (response == 1) {
+				updateLater = true
+				dialog.showMessageBox(win, {
+					title: "Updater",
+					message: "The update will be installed on application exit.",
+				})
+			}
+		})
+	}
 }
 
+ipcMain.on("app_version", (event) => {
+	event.reply("app_version", { version: app.getVersion() })
+})
+
+// Checks if user requested update after application exit
 app.on("quit", () => {
 	if (updateLater) {
 		autoUpdater.checkForUpdates()
