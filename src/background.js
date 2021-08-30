@@ -60,25 +60,28 @@ async function createWindow() {
 	})
 
 	autoUpdater.on("update-available", (info) => {
-		dialog
-			.showMessageBox(win, {
+		dialog.showMessageBox(
+			win,
+			{
 				title: "Updater",
 				message: "Update available. Do you want to download and update now?",
 				buttons: ["Download and Update Now", "Later"],
-			})
-			.then(function(value) {
-				if (value === 0) {
+			},
+			(response) => {
+				if (response === 0) {
+					autoUpdater.checkForUpdates()
 					autoUpdater.on("update-downloaded", (info) => {
 						autoUpdater.quitAndInstall()
 					})
-				} else if (value === 1) {
+				} else if (response === 1) {
 					updateLater = true
 					dialog.showMessageBox(win, {
 						title: "Updater",
 						message: "The update will be installed on application exit.",
 					})
 				}
-			})
+			}
+		)
 	})
 }
 
