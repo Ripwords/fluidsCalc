@@ -1,11 +1,10 @@
-"use strict"
-
 const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== "production"
+let updateLater = false
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
@@ -60,17 +59,21 @@ async function createWindow() {
 		}
 	})
 
-	autoUpdater.on("update-downloaded", (info) => {
-		dialog.showMessageBox(win, {
+	autoUpdater.on("update-available", (info) => {
+		dialog
+			.showMessageBox(win, {
 				title: "Updater",
-				message: "Update downloaded. Do you want to restart and update now?",
-				buttons: ["Restart Now", "Later"],
+				message: "Update available. Do you want to download and update now?",
+				buttons: ["Download and Update Now", "Later"],
 			})
 			.then(
 				(restart) => {
-					autoUpdater.quitAndInstall()
+					autoUpdater.on("update-downloaded", (info) => {
+						autoUpdater.quitAndInstall()
+					})
 				},
 				(later) => {
+					updateLater = true
 					dialog.showMessageBox(win, {
 						title: "Updater",
 						message: "The update will be installed at next launch.",
@@ -79,6 +82,16 @@ async function createWindow() {
 			)
 	})
 }
+
+app.on("quit", () => {
+	if (updateLater) {
+		autoUpdater.checkForUpdates()
+		autoUpdater.on("update-downloaded", (info) => {
+			autoUpdater.quitAndInstall()
+		})
+		app.quit()
+	}
+})
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
