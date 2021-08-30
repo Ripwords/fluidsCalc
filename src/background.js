@@ -96,7 +96,7 @@ app.on("activate", () => {
 })
 
 app.on("ready", function() {
-	autoUpdater.checkForUpdatesAndNotify()
+	autoUpdater.checkForUpdates()
 })
 
 app.on("ready", async () => {
