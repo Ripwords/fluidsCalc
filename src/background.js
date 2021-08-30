@@ -68,6 +68,10 @@ async function createWindow() {
 				buttons: ["Download and Update Now", "Later"],
 			},
 			(response) => {
+				dialog.showMessageBox(win, {
+					title: repsonse,
+					message: response
+				})
 				if (response === 0) {
 					autoUpdater.checkForUpdates()
 					autoUpdater.on("update-downloaded", (info) => {
