@@ -3,6 +3,7 @@ import home from "../views/home.vue"
 import intrp from "../views/intrp.vue"
 import cRise from "../views/capillaryRise.vue"
 import bernoulli from "../views/bernoulli.vue"
+import stagnation from "../views/stagnation.vue"
 
 const routes = [
 	{
@@ -28,6 +29,11 @@ const routes = [
 		path: "/bernoulli",
 		name: "bernoulli",
 		component: bernoulli,
+	},
+	{
+		path: "/stagnation",
+		name: "stagnation",
+		component: stagnation,
 	},
 ]
 

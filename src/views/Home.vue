@@ -24,6 +24,13 @@
 						<ion-card-subtitle>Calculates Bernoulli's Equation</ion-card-subtitle>
 					</ion-card-header>
 				</ion-card>
+
+				<ion-card button @click="menuNavigation('/stagnation')">
+					<ion-card-header>
+						<ion-card-title>Stagnation Pressure</ion-card-title>
+						<ion-card-subtitle>Calculates Stagnation Pressure</ion-card-subtitle>
+					</ion-card-header>
+				</ion-card>
 			</div>
 		</ion-content>
 		<Help></Help>
