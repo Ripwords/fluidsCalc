@@ -66,20 +66,19 @@ async function createWindow() {
 				message: "Update available. Do you want to download and update now?",
 				buttons: ["Download and Update Now", "Later"],
 			})
-			.then(
-				(restart) => {
+			.then(function(value) {
+				if (value === 0) {
 					autoUpdater.on("update-downloaded", (info) => {
 						autoUpdater.quitAndInstall()
 					})
-				},
-				(later) => {
+				} else if (value === 1) {
 					updateLater = true
 					dialog.showMessageBox(win, {
 						title: "Updater",
-						message: "The update will be installed at next launch.",
+						message: "The update will be installed on application exit.",
 					})
 				}
-			)
+			})
 	})
 }
 
