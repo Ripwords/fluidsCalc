@@ -11,9 +11,6 @@
                 <ion-fab-button @click="copyMail()">
                     <ion-icon :icon="mailOutline"></ion-icon>
                 </ion-fab-button>
-                <ion-fab-button @click="toggleTheme()">
-                    <ion-icon :icon="contrastOutline"></ion-icon>
-                </ion-fab-button>
             </ion-fab-list>
         </ion-fab>
     </div>
@@ -33,7 +30,6 @@ import {
     logoGithub,
     exitOutline,
     menu,
-    contrastOutline
 } from 'ionicons/icons'
 
 export default defineComponent({
@@ -44,7 +40,6 @@ export default defineComponent({
             logoGithub,
             exitOutline,
             menu,
-            contrastOutline
         }
     },
     components: {
@@ -59,9 +54,6 @@ export default defineComponent({
         },
         copyMail: function() {
             window.ipcRenderer.send('copyMail', 'copy')
-        },
-        toggleTheme: function() {
-            window.darkMode.toggle()
         }
     }
 })

@@ -24,7 +24,13 @@
                 </ion-item>
             </ion-list>
         </ion-content>
-        <ion-label id="versionNum">{{ version }}</ion-label>            
+        <ion-item>
+            <ion-label class="menu" position="floating">Decimal Place</ion-label>
+            <ion-input class="menu" type="number" v-model="decimal" :value="dec" min="0" max="6"></ion-input>            
+        </ion-item>
+        <ion-item>
+            <ion-label class="menu">{{ version }}</ion-label>
+        </ion-item>
     </ion-menu>
 </template>
 
@@ -38,6 +44,7 @@ import {
     IonItem,
     IonList,
     IonLabel,
+    IonInput,
     menuController
 } from "@ionic/vue";
 export default {
@@ -49,7 +56,8 @@ export default {
         IonTitle,
         IonItem,
         IonList,
-        IonLabel
+        IonLabel,
+        IonInput
     },
     beforeCreate() {
         window.ipcRenderer.send("app_version")
@@ -60,21 +68,35 @@ export default {
     },
     data() {
         return {
-            version: ""
+            version: "",
+            decimal: ""
         }
+    },
+    mounted() {
+        this.decimal = this.$store.state.decimal
     },  
     methods:{
         menuNavigation(url){
             menuController.close("app-menu")
             this.$router.push(url);
         }
+    },
+    computed: {
+        dec() {
+            return this.$store.state.decimal
+        }
+    },
+    watch: {
+        decimal: function(val) {
+            this.$store.commit("updateDec", parseInt(val))
+        }
     }
 };
 </script>
 
 <style scoped>
-#versionNum {
-    margin: 4%;
+.menu {
+    margin: 2%;
     color: rgb(124, 124, 124);
 }
 </style>

@@ -45,7 +45,7 @@ async function createWindow() {
 	if (process.env.WEBPACK_DEV_SERVER_URL) {
 		// Load the url of the dev server if in development mode
 		await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-		// if (!process.env.IS_TEST) win.webContents.openDevTools()
+		if (!process.env.IS_TEST) win.webContents.openDevTools()
 	} else {
 		createProtocol("app")
 		// Load the index.html when not in development
@@ -59,7 +59,7 @@ async function createWindow() {
 	})
 
 	if (process.platform !== "darwin") {
-		autoUpdater.on("update-downloaded", (info) => {
+		autoUpdater.on("update-downloaded", () => {
 			const response = dialog.showMessageBoxSync(win, {
 				title: "Updater",
 				message: "Update available. Do you want to update now?",
@@ -82,12 +82,11 @@ ipcMain.on("app_version", (event) => {
 	event.reply("app_version", { version: app.getVersion() })
 })
 
-
 // Checks if user requested update after application exit
 app.on("quit", () => {
 	if (updateLater) {
 		autoUpdater.checkForUpdates()
-		autoUpdater.on("update-downloaded", (info) => {
+		autoUpdater.on("update-downloaded", () => {
 			autoUpdater.quitAndInstall()
 		})
 		app.quit()

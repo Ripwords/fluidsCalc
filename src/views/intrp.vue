@@ -34,7 +34,7 @@
                 <ion-list>
                 <ion-item>
                     <strong>Output : </strong>
-                    <strong id="output" v-if="isNaN(interpolate) == false">&nbsp;{{ interpolate == "" ? "" : parseFloat(interpolate).toFixed(5) }}</strong>
+                    <strong id="output" v-if="isNaN(interpolate) == false">&nbsp;{{ interpolate == "" ? "" : parseFloat(interpolate).toFixed(this.$store.state.decimal) }}</strong>
                 </ion-item>
                 </ion-list>
                 <br>

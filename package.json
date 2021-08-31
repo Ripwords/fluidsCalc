@@ -1,16 +1,15 @@
 {
   "name": "fluids_calc",
-  "version": "0.6.4",
-  "author": "JJ Teoh",
+  "version": "0.6.5",
   "description": "An Ionic project",
-  "repository": "https://github.com/Ripwords/fluidsCalc",
+  "author": "JJ Teoh",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "vue-cli-service electron:build --win --publish always",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
+    "deploy": "vue-cli-service electron:build --win --publish always",
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
@@ -28,7 +27,8 @@
     "core-js": "^3.6.5",
     "electron-updater": "^4.3.9",
     "vue": "^3.2.1",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@capacitor/cli": "3.2.0",
@@ -38,6 +38,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0-0",
     "@vue/test-utils": "^2.0.0-0",
@@ -47,5 +48,6 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-jest": "^5.0.0-0"
-  }
+  },
+  "repository": "https://github.com/Ripwords/fluidsCalc"
 }

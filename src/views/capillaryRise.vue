@@ -30,7 +30,7 @@
                 <ion-list>
                     <ion-item>
                         <strong>Output : </strong>
-                        <strong id="output" v-if="isNaN(height) == false">&nbsp;{{ height == "" ? "" : String(parseFloat(height).toFixed(5)) + " m" }}</strong>
+                        <strong id="output" v-if="isNaN(height) == false">&nbsp;{{ height == "" ? "" : String(parseFloat(height).toFixed(this.$store.state.decimal)) + " m" }}</strong>
                     </ion-item>
                 </ion-list>
                 <br>

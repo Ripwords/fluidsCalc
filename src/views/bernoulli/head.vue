@@ -92,49 +92,49 @@ export default defineComponent({
     computed: {
         p1Show() {
             if (this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(this.rho * ((this.p2/this.rho) + (this.v2**2 / 2) + 9.81*(this.z2 - this.z1) - (this.v1**2 /2))).toFixed(5)
+                return parseFloat(this.rho * ((this.p2/this.rho) + (this.v2**2 / 2) + 9.81*(this.z2 - this.z1) - (this.v1**2 /2))).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         p2Show() {
             if (this.p1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(this.rho * ((1000*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))).toFixed(5)
+                return parseFloat(this.rho * ((1000*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         v1Show() {
             if (this.p1 != "" && this.p2 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(Math.sqrt(2*(((1000*this.p2-1000*this.p1)/this.rho) + (this.v2*this.v2/2) + 9.81*(this.z2-this.z1)))).toFixed(5)
+                return parseFloat(Math.sqrt(2*(((1000*this.p2-1000*this.p1)/this.rho) + (this.v2*this.v2/2) + 9.81*(this.z2-this.z1)))).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         v2Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(Math.sqrt(2*(((1000*this.p1-1000*this.p2)/this.rho) + (this.v1*this.v1/2) + 9.81*(this.z1-this.z2)))).toFixed(5)
+                return parseFloat(Math.sqrt(2*(((1000*this.p1-1000*this.p2)/this.rho) + (this.v1*this.v1/2) + 9.81*(this.z1-this.z2)))).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         z1Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat((((1000*this.p2-1000*this.p1)/this.rho) + (this.v2**2 - this.v1**2)/2 + 9.81*this.z2) / 9.81).toFixed(5)
+                return parseFloat((((1000*this.p2-1000*this.p1)/this.rho) + (this.v2**2 - this.v1**2)/2 + 9.81*this.z2) / 9.81).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         z2Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.rho != "") {
-                return parseFloat((((1000*this.p1-1000*this.p2)/this.rho) + (this.v1**2 - this.v2**2)/2 + 9.81*this.z1) / 9.81).toFixed(5)
+                return parseFloat((((1000*this.p1-1000*this.p2)/this.rho) + (this.v1**2 - this.v2**2)/2 + 9.81*this.z1) / 9.81).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         rhoShow() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "") {
-                return parseFloat((1000*this.p2 - 1000*this.p1) / ((this.v1**2 - this.v2**2)/2 + (9.81*(this.z1-this.z2)))).toFixed(5)
+                return parseFloat((1000*this.p2 - 1000*this.p1) / ((this.v1**2 - this.v2**2)/2 + (9.81*(this.z1-this.z2)))).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }

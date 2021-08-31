@@ -80,28 +80,28 @@ export default defineComponent({
     computed: {
         pStagShow() {
             if (this.p != "" && this.rho != "" && this.v != "") {
-                return parseFloat(1000*this.p + 1000*(this.rho * this.v**2)/2).toFixed(5)
+                return parseFloat(1000*this.p + 1000*(this.rho * this.v**2)/2).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         pShow() {
             if (this.pStag != "" && this.rho != "" && this.v != "") {
-                return parseFloat(this.pStag*1000 - (1000*(this.rho*this.v**2)/2)).toFixed(5)
+                return parseFloat(this.pStag*1000 - (1000*(this.rho*this.v**2)/2)).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         rhoShow() {
             if (this.pStag != "" && this.p != "" && this.v != "") {
-                return parseFloat((this.pStag - this.p)/((this.v**2)/2)).toFixed(5)
+                return parseFloat((this.pStag - this.p)/((this.v**2)/2)).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         vShow() {
             if (this.pStag != "" && this.p != "" && this.rho != "") {
-                return parseFloat(Math.sqrt((2/this.rho)*(this.pStag-this.p)*1000)).toFixed(5)
+                return parseFloat(Math.sqrt((2/this.rho)*(this.pStag-this.p)*1000)).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
