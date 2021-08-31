@@ -4,7 +4,8 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img src="/img/cRise.png" width=225 height=75>
+                <img class="invert" src="/img/cRise.png" width=225 height=75>
+                <br>
                 <br>
                 <ion-list>
                     <ion-item>

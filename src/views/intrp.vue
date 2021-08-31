@@ -4,7 +4,8 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img src="/img/equation.png" width=300 height=75>
+                <img class="invert" src="/img/equation.png" width=320 height=75>
+                <br>
                 <br>
                 <ion-list>
                     <ion-item>
@@ -107,6 +108,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 #container {
   text-align: center;
   

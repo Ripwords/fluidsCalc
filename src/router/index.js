@@ -1,9 +1,5 @@
 import { createRouter, createWebHashHistory } from "@ionic/vue-router"
 import home from "../views/home.vue"
-import intrp from "../views/intrp.vue"
-import cRise from "../views/capillaryRise.vue"
-import bernoulli from "../views/bernoulli.vue"
-import stagnation from "../views/stagnation.vue"
 
 const routes = [
 	{
@@ -18,22 +14,37 @@ const routes = [
 	{
 		path: "/intrp",
 		name: "intrp",
-		component: intrp,
+		component: () => import("../views/intrp.vue"),
 	},
 	{
 		path: "/cRise",
 		name: "cRise",
-		component: cRise,
+		component: () => import("../views/capillaryRise.vue"),
 	},
 	{
-		path: "/bernoulli",
+		path: "/bernoulli/",
+		redirect: "/bernoulli/energy",
 		name: "bernoulli",
-		component: bernoulli,
+		component: () => import("../views/bernoulli.vue"),
+		children: [
+			{
+				path: "energy",
+				component: () => import("../views/bernoulli/energy.vue"),
+			},
+			{
+				path: "pressure",
+				component: () => import("../views/bernoulli/pressure.vue"),
+			},
+			{
+				path: "head",
+				component: () => import("../views/bernoulli/head.vue"),
+			},
+		],
 	},
 	{
 		path: "/stagnation",
 		name: "stagnation",
-		component: stagnation,
+		component: () => import("../views/stagnation.vue"),
 	},
 ]
 

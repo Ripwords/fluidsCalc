@@ -4,7 +4,9 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img src="/img/stagnation.png" width="250" height="75">
+                <img class="invert" src="/img/stagnation.png" width="250" height="75">
+                <br>
+                <br>
                 <ion-list>
                     <ion-item>
                         <ion-label>P<sub>stag</sub> : </ion-label>
