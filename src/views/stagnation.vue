@@ -11,22 +11,22 @@
                     <ion-item>
                         <ion-label>P<sub>stag</sub> : </ion-label>
                         <ion-input v-if="!pStagShow" v-model="pStag" type="number" placeholder="Enter Stagnation Pressure ( kPa )"></ion-input>
-                        <ion-label v-if="pStagShow">&nbsp;{{ pStagShow }}</ion-label>
+                        <ion-input v-else type="number" :value=pStagShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>P &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
                         <ion-input v-if="!pShow" v-model="p" type="number" placeholder="Enter Static Pressure ( kPa )"></ion-input>
-                        <ion-label v-if="pShow">&nbsp;{{ pShow }}</ion-label>
+                        <ion-input v-else type="number" :value=pShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&rho; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
                         <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Enter Fluid Density ( kg/m^3 )"></ion-input>
-                        <ion-label v-if="rhoShow">&nbsp;{{ rhoShow }}</ion-label>
+                        <ion-input v-else type="number" :value=rhoShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>V &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
                         <ion-input v-if="!vShow" v-model="v" type="number" placeholder="Enter Fluid Velocity ( m/s )"></ion-input>
-                        <ion-label v-if="vShow">&nbsp;{{ vShow }}</ion-label>
+                        <ion-input v-else type="number" :value=vShow readonly></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>

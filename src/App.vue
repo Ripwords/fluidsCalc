@@ -19,9 +19,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style>
-.invert {
-    filter: invert(100%);
-}
-</style>

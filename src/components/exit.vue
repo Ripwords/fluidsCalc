@@ -15,7 +15,6 @@ import {
 import { defineComponent } from 'vue'
 import { exitOutline } from 'ionicons/icons'
 
-
 export default defineComponent({
     setup() {
         return {

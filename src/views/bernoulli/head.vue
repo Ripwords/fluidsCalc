@@ -4,38 +4,38 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img class="invert" src="/img/bHead.png" width="440" height="75">
+                <img class="invert" src="/img/bEnergy.png" width="450" height="75">
                 <br>
                 <br>
                 <ion-list>
                     <ion-item>
                         <ion-label>P<sub>1</sub> : </ion-label>
                         <ion-input v-if="!p1Show" v-model="p1" type="number" placeholder="Enter Pressure 1 ( kPa )"></ion-input>
-                        <ion-label class="output" v-if="p1Show" >&nbsp;{{ p1Show }}</ion-label>
+                        <ion-input v-else type="number" :value=p1Show readonly></ion-input>
                         <ion-label>P<sub>2</sub> : </ion-label>
                         <ion-input v-if="!p2Show" v-model="p2" type="number" placeholder="Enter Pressure 2 ( kPa )"></ion-input>
-                        <ion-label class="output" v-if="p2Show" >&nbsp;{{ p2Show }}</ion-label>
+                        <ion-input v-else type="number" :value=p2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>V<sub>1</sub> : </ion-label>
                         <ion-input v-if="!v1Show" v-model="v1" type="number" placeholder="Enter Velocity 1 ( m/s )"></ion-input>
-                        <ion-label class="output" v-if="v1Show" >&nbsp;{{ v1Show }}</ion-label>
+                        <ion-input v-else type="number" :value=v1Show readonly></ion-input>
                         <ion-label>V<sub>2</sub> : </ion-label>
                         <ion-input v-if="!v2Show" v-model="v2" type="number" placeholder="Enter Velocity 2 ( m/s )"></ion-input>
-                        <ion-label class="output" v-if="v2Show" >&nbsp;{{ v2Show }}</ion-label>
+                        <ion-input v-else type="number" :value=v2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>z<sub>1</sub> : </ion-label>
                         <ion-input v-if="!z1Show" v-model="z1" type="number" placeholder="Enter relative height 1 ( m )"></ion-input>
-                        <ion-label class="output" v-if="z1Show" >&nbsp;{{ z1Show }}</ion-label>
+                        <ion-input v-else type="number" :value=z1Show readonly></ion-input>
                         <ion-label>z<sub>2</sub> : </ion-label>
                         <ion-input v-if="!z2Show" v-model="z2" type="number" placeholder="Enter relative height 2 ( m )"></ion-input>
-                        <ion-label class="output" v-if="z2Show" >&nbsp;{{ z2Show }}</ion-label>
+                        <ion-input v-else type="number" :value=z2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&rho;&nbsp;&nbsp;: </ion-label>
                         <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Enter Density ( kg/m^3 )"></ion-input>
-                        <ion-label class="output" v-if="rhoShow" >&nbsp;{{ rhoShow }}</ion-label>
+                        <ion-input v-else type="number" :value=rhoShow readonly></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>

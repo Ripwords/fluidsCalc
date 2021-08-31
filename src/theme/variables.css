@@ -76,11 +76,19 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
+.invert {
+  filter: invert(0%);
+}
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
+
+  .invert {
+    filter: invert(100%);
+  }
 
   body {
     --ion-color-primary: #428cff;
