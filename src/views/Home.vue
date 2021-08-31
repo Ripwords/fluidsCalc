@@ -7,7 +7,7 @@
 				<ion-card button @click="menuNavigation('/intrp')">
 					<ion-card-header>
 						<ion-card-title>Interpolator</ion-card-title>
-						<ion-card-subtitle>Interpolates property table values</ion-card-subtitle>
+						<ion-card-subtitle>Interpolates values</ion-card-subtitle>
 					</ion-card-header>
 				</ion-card>
 
