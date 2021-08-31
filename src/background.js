@@ -68,6 +68,7 @@ async function createWindow() {
 			})
 			if (response == 0) {
 				autoUpdater.checkForUpdates()
+				app.exit(0)
 				autoUpdater.on("update-downloaded", (info) => {
 					autoUpdater.quitAndInstall()
 				})
