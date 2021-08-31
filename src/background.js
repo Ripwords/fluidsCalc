@@ -82,10 +82,14 @@ ipcMain.on("app_version", (event) => {
 	event.reply("app_version", { version: app.getVersion() })
 })
 
+
 // Checks if user requested update after application exit
 app.on("quit", () => {
 	if (updateLater) {
-		autoUpdater.quitAndInstall()
+		autoUpdater.checkForUpdates()
+		autoUpdater.on("update-downloaded", (info) => {
+			autoUpdater.quitAndInstall()
+		})
 		app.quit()
 	}
 })
