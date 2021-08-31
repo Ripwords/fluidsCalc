@@ -11,6 +11,13 @@
 					</ion-card-header>
 				</ion-card>
 
+				<ion-card button @click="menuNavigation('/density')">
+					<ion-card-header>
+						<ion-card-title>Density</ion-card-title>
+						<ion-card-subtitle>Calculates Density</ion-card-subtitle>
+					</ion-card-header>
+				</ion-card>
+
 				<ion-card button @click="menuNavigation('/cRise')">
 					<ion-card-header>
 						<ion-card-title>Capillary Rise</ion-card-title>

@@ -13,6 +13,9 @@
                 <ion-item button @click="menuNavigation('/intrp')">
                     <ion-label>Interpolator</ion-label>
                 </ion-item>
+                <ion-item button @click="menuNavigation('/density')">
+                    <ion-label>Density</ion-label>
+                </ion-item>
                 <ion-item button @click="menuNavigation('/cRise')">
                     <ion-label>Capillary Rise</ion-label>
                 </ion-item>
