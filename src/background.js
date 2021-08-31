@@ -5,6 +5,7 @@ import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== "production"
 let updateLater = false
+let updateNow = false
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
@@ -66,8 +67,9 @@ async function createWindow() {
 				buttons: ["Download and Update Now", "Later"],
 			})
 			if (response == 0) {
+				updateNow = true
+				app.quit()
 				autoUpdater.checkForUpdates()
-				app.exit(0)
 				autoUpdater.on("update-downloaded", (info) => {
 					autoUpdater.quitAndInstall()
 				})
@@ -84,6 +86,12 @@ async function createWindow() {
 
 ipcMain.on("app_version", (event) => {
 	event.reply("app_version", { version: app.getVersion() })
+})
+
+app.on("will-quit", (event) => {
+	if (updateNow) {
+		event.preventDefault()
+	}
 })
 
 // Checks if user requested update after application exit
