@@ -10,11 +10,11 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>&sigma;<sub>S</sub> : </ion-label>
-                        <ion-input v-model="surfaceT" type="number" placeholder="Enter surface tension" required="true"></ion-input>
+                        <ion-input v-model="surfaceT" type="number" placeholder="Enter surface tension ( N/m )" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&rho;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-model="density" type="number" placeholder="Enter Density" required="true"></ion-input>
+                        <ion-input v-model="density" type="number" placeholder="Enter Density ( kg/m^3 )" required="true"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>R&nbsp;&nbsp;: </ion-label>
@@ -22,7 +22,7 @@
                     </ion-item>
                     <ion-item>
                         <ion-label>&Phi;&nbsp; : </ion-label>
-                        <ion-input v-model="angle" type="number" placeholder="Enter angle" required="true"></ion-input>
+                        <ion-input v-model="angle" type="number" placeholder="Enter angle ( in degrees )" required="true"></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>
