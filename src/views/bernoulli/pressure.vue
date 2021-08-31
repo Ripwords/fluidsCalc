@@ -21,7 +21,7 @@
                         <ion-input v-if="!v1Show" v-model="v1" type="number" placeholder="Enter Velocity 1 ( m/s )"></ion-input>
                         <ion-label class="output" v-if="v1Show" >&nbsp;{{ v1Show }}</ion-label>
                         <ion-label>V<sub>2</sub> : </ion-label>
-                        <ion-input v-if="!v2Show" v-model="v2" type="number" placeholder="Enter Velocity 2 ( m/s )"></ion-input>
+                        <ion-input v-if="!v2Show" v-model="v2" type="number" placeholder="Enter Velocity 2 ( 1000 )"></ion-input>
                         <ion-label class="output" v-if="v2Show" >&nbsp;{{ v2Show }}</ion-label>
                     </ion-item>
                     <ion-item>
@@ -99,42 +99,42 @@ export default defineComponent({
         },
         p2Show() {
             if (this.p1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(this.rho * ((0.001*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))).toFixed(5)
+                return parseFloat(this.rho * ((1000*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))).toFixed(5)
             } else {
                 return ""
             }
         },
         v1Show() {
             if (this.p1 != "" && this.p2 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(Math.sqrt(2*(((0.001*this.p2-0.001*this.p1)/this.rho) + (this.v2*this.v2/2) + 9.81*(this.z2-this.z1)))).toFixed(5)
+                return parseFloat(Math.sqrt(2*(((1000*this.p2-1000*this.p1)/this.rho) + (this.v2*this.v2/2) + 9.81*(this.z2-this.z1)))).toFixed(5)
             } else {
                 return ""
             }
         },
         v2Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(Math.sqrt(2*(((0.001*this.p1-0.001*this.p2)/this.rho) + (this.v1*this.v1/2) + 9.81*(this.z1-this.z2)))).toFixed(5)
+                return parseFloat(Math.sqrt(2*(((1000*this.p1-1000*this.p2)/this.rho) + (this.v1*this.v1/2) + 9.81*(this.z1-this.z2)))).toFixed(5)
             } else {
                 return ""
             }
         },
         z1Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat((((0.001*this.p2-0.001*this.p1)/this.rho) + (this.v2**2 - this.v1**2)/2 + 9.81*this.z2) / 9.81).toFixed(5)
+                return parseFloat((((1000*this.p2-1000*this.p1)/this.rho) + (this.v2**2 - this.v1**2)/2 + 9.81*this.z2) / 9.81).toFixed(5)
             } else {
                 return ""
             }
         },
         z2Show() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.rho != "") {
-                return parseFloat((((0.001*this.p1-0.001*this.p2)/this.rho) + (this.v1**2 - this.v2**2)/2 + 9.81*this.z1) / 9.81).toFixed(5)
+                return parseFloat((((1000*this.p1-1000*this.p2)/this.rho) + (this.v1**2 - this.v2**2)/2 + 9.81*this.z1) / 9.81).toFixed(5)
             } else {
                 return ""
             }
         },
         rhoShow() {
             if (this.p1 != "" && this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "") {
-                return parseFloat((0.001*this.p2 - 0.001*this.p1) / ((this.v1**2 - this.v2**2)/2 + (9.81*(this.z1-this.z2)))).toFixed(5)
+                return parseFloat((1000*this.p2 - 1000*this.p1) / ((this.v1**2 - this.v2**2)/2 + (9.81*(this.z1-this.z2)))).toFixed(5)
             } else {
                 return ""
             }

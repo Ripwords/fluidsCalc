@@ -80,14 +80,14 @@ export default defineComponent({
     computed: {
         pStagShow() {
             if (this.p != "" && this.rho != "" && this.v != "") {
-                return parseFloat(0.001*this.p + (this.rho * this.v**2)/2000).toFixed(5)
+                return parseFloat(1000*this.p + 1000*(this.rho * this.v**2)/2).toFixed(5)
             } else {
                 return ""
             }
         },
         pShow() {
             if (this.pStag != "" && this.rho != "" && this.v != "") {
-                return parseFloat(this.pStag*0.001 - ((this.rho*this.v**2)/2000)).toFixed(5)
+                return parseFloat(this.pStag*1000 - (1000*(this.rho*this.v**2)/2)).toFixed(5)
             } else {
                 return ""
             }
@@ -101,7 +101,7 @@ export default defineComponent({
         },
         vShow() {
             if (this.pStag != "" && this.p != "" && this.rho != "") {
-                return parseFloat(Math.sqrt((2/this.rho)*(this.pStag-this.p)*0.001)).toFixed(5)
+                return parseFloat(Math.sqrt((2/this.rho)*(this.pStag-this.p)*1000)).toFixed(5)
             } else {
                 return ""
             }
