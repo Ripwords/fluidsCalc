@@ -5,7 +5,6 @@ import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 import { autoUpdater } from "electron-updater"
 const isDevelopment = process.env.NODE_ENV !== "production"
 let updateLater = false
-let updateNow = false
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
@@ -60,19 +59,14 @@ async function createWindow() {
 	})
 
 	if (process.platform !== "darwin") {
-		autoUpdater.on("update-available", (info) => {
+		autoUpdater.on("update-downloaded", (info) => {
 			const response = dialog.showMessageBoxSync(win, {
 				title: "Updater",
 				message: "Update available. Do you want to download and update now?",
 				buttons: ["Download and Update Now", "Later"],
 			})
 			if (response == 0) {
-				updateNow = true
-				app.quit()
-				autoUpdater.checkForUpdates()
-				autoUpdater.on("update-downloaded", (info) => {
-					autoUpdater.quitAndInstall()
-				})
+				autoUpdater.quitAndInstall()
 			} else if (response == 1) {
 				updateLater = true
 				dialog.showMessageBox(win, {
@@ -88,19 +82,10 @@ ipcMain.on("app_version", (event) => {
 	event.reply("app_version", { version: app.getVersion() })
 })
 
-app.on("will-quit", (event) => {
-	if (updateNow) {
-		event.preventDefault()
-	}
-})
-
 // Checks if user requested update after application exit
 app.on("quit", () => {
 	if (updateLater) {
-		autoUpdater.checkForUpdates()
-		autoUpdater.on("update-downloaded", (info) => {
-			autoUpdater.quitAndInstall()
-		})
+		autoUpdater.quitAndInstall()
 		app.quit()
 	}
 })
