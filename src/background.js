@@ -55,7 +55,6 @@ async function createWindow() {
 		if (arg === "quit") {
 			win.webContents.closeDevTools()
 			app.quit()
-			console.log("Exiting application")
 		}
 	})
 
