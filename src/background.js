@@ -63,7 +63,7 @@ async function createWindow() {
 			const response = dialog.showMessageBoxSync(win, {
 				title: "Updater",
 				message: "Update available. Do you want to update now?",
-				buttons: ["Download and Update Now", "Later"],
+				buttons: ["Update Now", "Later"],
 			})
 			if (response == 0) {
 				autoUpdater.quitAndInstall()
