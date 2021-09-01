@@ -4,45 +4,10 @@
 		<ion-content :fullscreen="true">
 			<Exit></Exit>
 			<div id="container">
-				<ion-card button @click="menuNavigation('/intrp')">
+				<ion-card v-for="card in cards" :key="card.title" button @click="menuNavigation(card.path)">
 					<ion-card-header>
-						<ion-card-title>Interpolator</ion-card-title>
-						<ion-card-subtitle>Interpolates property table values</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-
-				<ion-card button @click="menuNavigation('/density')">
-					<ion-card-header>
-						<ion-card-title>Density</ion-card-title>
-						<ion-card-subtitle>Calculates Density</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-
-				<ion-card button @click="menuNavigation('/cRise')">
-					<ion-card-header>
-						<ion-card-title>Capillary Rise</ion-card-title>
-						<ion-card-subtitle>Calculates capillary action</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-
-				<ion-card button @click="menuNavigation('/bernoulli')">
-					<ion-card-header>
-						<ion-card-title>Bernoulli's Equation</ion-card-title>
-						<ion-card-subtitle>Calculates Bernoulli's Equation</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-
-				<ion-card button @click="menuNavigation('/eglhgl')">
-					<ion-card-header>
-						<ion-card-title>HGL & EGL</ion-card-title>
-						<ion-card-subtitle>Calculates EGL & HGL</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
-
-				<ion-card button @click="menuNavigation('/stagnation')">
-					<ion-card-header>
-						<ion-card-title>Stagnation Pressure</ion-card-title>
-						<ion-card-subtitle>Calculates Stagnation Pressure</ion-card-subtitle>
+						<ion-card-title>{{ card.title }}</ion-card-title>
+						<ion-card-subtitle>{{ card.sub }}</ion-card-subtitle>
 					</ion-card-header>
 				</ion-card>
 			</div>
@@ -79,6 +44,42 @@
 			Help,
 			Header,
 			Exit,
+		},
+		data() {
+			return {
+				cards: [
+					{
+						title: this.$store.state.titles[0],
+						path: this.$store.state.paths[0],
+						sub: "Interpolates property table values"
+					},
+					{
+						title: this.$store.state.titles[1],
+						path: this.$store.state.paths[1],
+						sub: "Calculates Density"
+					},
+					{
+						title: this.$store.state.titles[2],
+						path: this.$store.state.paths[2],
+						sub: "Calculates capillary action"
+					},
+					{
+						title:  this.$store.state.titles[3],
+						path: this.$store.state.paths[3],
+						sub: "Calculates Bernoulli's Equation"
+					},
+					{
+						title: this.$store.state.titles[4],
+						path: this.$store.state.paths[4],
+						sub: "Calculates EGL & HGL"
+					},
+					{
+						title: this.$store.state.titles[5],
+						path: this.$store.state.paths[5],
+						sub: "Calculates Stagnation Pressure"
+					}
+				]
+			}
 		},
 		methods: {
 			menuNavigation(url) {
