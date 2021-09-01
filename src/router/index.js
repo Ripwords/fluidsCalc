@@ -47,6 +47,22 @@ const routes = [
 		],
 	},
 	{
+		path: "/eglhgl/",
+		redirect: "/eglhgl/hgl",
+		name: "eglhgl",
+		component: () => import("../views/egl_hgl.vue"),
+		children: [
+			{
+				path: "egl",
+				component: () => import("../views/egl_hgl/egl.vue"),
+			},
+			{
+				path: "hgl",
+				component: () => import("../views/egl_hgl/hgl.vue"),
+			},
+		],
+	},
+	{
 		path: "/stagnation",
 		name: "stagnation",
 		component: () => import("../views/stagnation.vue"),

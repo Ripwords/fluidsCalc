@@ -22,6 +22,9 @@
                 <ion-item button @click="menuNavigation('/bernoulli')">
                     <ion-label>Bernoulli's Equation</ion-label>
                 </ion-item>
+                <ion-item button @click="menuNavigation('/eglhgl')">
+                    <ion-label>HGL & EGL</ion-label>
+                </ion-item>
                 <ion-item button @click="menuNavigation('/stagnation')">
                     <ion-label>Stagnation Pressure</ion-label>
                 </ion-item>

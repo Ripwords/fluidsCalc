@@ -5,6 +5,8 @@
             <Exit></Exit>
             <div id="container">
                 <!-- image -->
+                <br>
+                <br>
                 <ion-list>
                     <ion-item>
                         <ion-label></ion-label>

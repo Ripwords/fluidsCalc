@@ -32,6 +32,13 @@
 					</ion-card-header>
 				</ion-card>
 
+				<ion-card button @click="menuNavigation('/eglhgl')">
+					<ion-card-header>
+						<ion-card-title>HGL & EGL</ion-card-title>
+						<ion-card-subtitle>Calculates EGL & HGL</ion-card-subtitle>
+					</ion-card-header>
+				</ion-card>
+
 				<ion-card button @click="menuNavigation('/stagnation')">
 					<ion-card-header>
 						<ion-card-title>Stagnation Pressure</ion-card-title>
