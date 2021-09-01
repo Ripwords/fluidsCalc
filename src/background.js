@@ -1,8 +1,8 @@
-const path = require("path")
 import { app, protocol, BrowserWindow, shell, clipboard, dialog, ipcMain } from "electron"
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer"
 import { autoUpdater } from "electron-updater"
+const path = require("path")
 const isDevelopment = process.env.NODE_ENV !== "production"
 let updateLater = false
 

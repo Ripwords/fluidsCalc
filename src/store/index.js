@@ -1,17 +1,42 @@
 import { createStore } from "vuex"
+import VuexPersistence from "vuex-persist"
 
 export default createStore({
 	state: {
 		decimal: 4,
-		titles: [
-			"Interpolator",
-			"Density",
-			"Capillary Rise",
-			"Bernoulli's Equation",
-			"HGL & EGL",
-			"Stagnation Pressure",
+		order: [0, 1, 2, 3, 4, 5],
+		pages: [
+			{
+				title: "Interpolator",
+				path: "/intrp",
+				sub: "Interpolates property table values",
+			},
+			{
+				title: "Density",
+				path: "/density",
+				sub: "Calculates Density",
+			},
+			{
+				title: "Capillary Rise",
+				path: "/cRise",
+				sub: "Calculates capillary action",
+			},
+			{
+				title: "Bernoulli's Equation",
+				path: "/bernoulli",
+				sub: "Calculates Bernoulli's Equation",
+			},
+			{
+				title: "HGL & EGL",
+				path: "/eglhgl",
+				sub: "Calculates EGL & HGL",
+			},
+			{
+				title: "Stagnation Pressure",
+				path: "/stagnation",
+				sub: "Calculates Stagnation Pressure",
+			},
 		],
-		paths: ["/intrp", "/density", "/cRise", "/bernoulli", "/eglhgl", "/stagnation"],
 	},
 	mutations: {
 		updateDec(state, newDec) {
@@ -23,7 +48,10 @@ export default createStore({
 				state.decimal = 0
 			}
 		},
+		updateOrder(state, newOrder) {
+			state.order = newOrder
+			console.log(state.order)
+		},
 	},
-	actions: {},
-	modules: {},
+	plugins: [new VuexPersistence().plugin],
 })

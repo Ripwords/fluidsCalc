@@ -1,6 +1,7 @@
 <template id="main">
     <ion-page>
         <ion-tabs>
+            <ion-router-outlet></ion-router-outlet>
             <ion-tab-bar slot="bottom">
                 <ion-tab-button tab="HGL" href="/eglhgl/hgl">
                     <ion-icon :icon="returnDownForwardOutline"></ion-icon>
@@ -22,6 +23,7 @@ import {
     IonLabel, 
     IonTabBar,
     IonTabButton,
+    IonRouterOutlet,
     IonTabs
 } from "@ionic/vue";
 import { defineComponent } from 'vue';
@@ -34,6 +36,7 @@ export default defineComponent({
         IonLabel,
         IonTabBar,
         IonTabButton,
+        IonRouterOutlet,
         IonTabs,
     },
     setup() {

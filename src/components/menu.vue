@@ -7,9 +7,14 @@
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-item v-for="item in items" :key="item.title" button @click="menuNavigation(item.path)">
+                <ion-item button @click="menuNavigation('/home')">
                     <ion-label>
-                        {{ item.title }}
+                        Home
+                    </ion-label>
+                </ion-item>
+                <ion-item v-for="num in order" :key="items[num].title" button @click="menuNavigation(items[num].path)">
+                    <ion-label>
+                        {{ items[num].title }}
                     </ion-label>
                 </ion-item>
             </ion-list>
@@ -60,36 +65,8 @@ export default {
         return {
             version: "",
             decimal: "",
-            items: [
-                {
-                    title: "Home",
-                    path: "/home"
-                },
-                {
-                    title: this.$store.state.titles[0],
-                    path: this.$store.state.paths[0]
-                },
-                {
-                    title: this.$store.state.titles[1],
-                    path: this.$store.state.paths[1]
-                },
-                {
-                    title: this.$store.state.titles[2],
-                    path: this.$store.state.paths[2]
-                },
-                {
-                    title:  this.$store.state.titles[3],
-                    path: this.$store.state.paths[3]
-                },
-                {
-                    title: this.$store.state.titles[4],
-                    path: this.$store.state.paths[4]
-                },
-                {
-                    title: this.$store.state.titles[5],
-                    path: this.$store.state.paths[5]
-                }
-            ]
+            order: this.$store.state.order,
+            items: this.$store.state.pages
         }
     },
     mounted() {

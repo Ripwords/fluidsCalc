@@ -4,14 +4,23 @@
 		<ion-content :fullscreen="true">
 			<Exit></Exit>
 			<div id="container">
-				<ion-card v-for="card in cards" :key="card.title" button @click="menuNavigation(card.path)">
-					<ion-card-header>
-						<ion-card-title>{{ card.title }}</ion-card-title>
-						<ion-card-subtitle>{{ card.sub }}</ion-card-subtitle>
-					</ion-card-header>
-				</ion-card>
+				<ion-reorder-group @ionItemReorder="doReorder($event)" :disabled="reord">
+					<ion-card v-for="num in order" :key="num" button @click="menuNavigation(cards[num].path)">
+						<ion-reorder>
+							<ion-card-header>
+								<ion-card-title>{{ cards[num].title }}</ion-card-title>
+								<ion-card-subtitle>{{ cards[num].sub }}</ion-card-subtitle>
+							</ion-card-header>
+						</ion-reorder>
+					</ion-card>
+				</ion-reorder-group>
 			</div>
 		</ion-content>
+		<ion-fab horizontal="start" vertical="bottom" slot="fixed">
+			<ion-fab-button :color="toggleColor" @click="reordToggle()">
+				<ion-icon :icon="menu"></ion-icon>
+			</ion-fab-button>
+		</ion-fab>
 		<Help></Help>
 	</ion-page>
 </template>
@@ -24,16 +33,24 @@
 		IonCardTitle,
 		IonCardSubtitle,
 		IonCardHeader,
+		IonReorderGroup,
+		IonReorder,
 		menuController,
+		IonFab,
+		IonIcon,
+		IonFabButton
 	} from "@ionic/vue"
 
+	import { menu } from "ionicons/icons"
 	import { defineComponent } from "vue"
-
 	import Help from "../components/help.vue"
 	import Header from "../components/header.vue"
 	import Exit from "../components/exit.vue"
 
 	export default defineComponent({
+		setup() {
+			return { menu }
+		},
 		components: {
 			IonPage,
 			IonContent,
@@ -41,80 +58,71 @@
 			IonCardTitle,
 			IonCardSubtitle,
 			IonCardHeader,
+			IonReorderGroup,
+			IonReorder,
+			IonFab,
+			IonFabButton,
+			IonIcon,
 			Help,
 			Header,
 			Exit,
 		},
 		data() {
 			return {
-				cards: [
-					{
-						title: this.$store.state.titles[0],
-						path: this.$store.state.paths[0],
-						sub: "Interpolates property table values"
-					},
-					{
-						title: this.$store.state.titles[1],
-						path: this.$store.state.paths[1],
-						sub: "Calculates Density"
-					},
-					{
-						title: this.$store.state.titles[2],
-						path: this.$store.state.paths[2],
-						sub: "Calculates capillary action"
-					},
-					{
-						title:  this.$store.state.titles[3],
-						path: this.$store.state.paths[3],
-						sub: "Calculates Bernoulli's Equation"
-					},
-					{
-						title: this.$store.state.titles[4],
-						path: this.$store.state.paths[4],
-						sub: "Calculates EGL & HGL"
-					},
-					{
-						title: this.$store.state.titles[5],
-						path: this.$store.state.paths[5],
-						sub: "Calculates Stagnation Pressure"
-					}
-				]
+				toggleColor: "grey",
+				reord: true,
+				cards: this.$store.state.pages,
+				order: this.$store.state.order
 			}
 		},
 		methods: {
 			menuNavigation(url) {
 				menuController.close("app-menu")
 				this.$router.push(url)
+			},
+			reordToggle() {
+				this.reord = !this.reord
+				if (this.toggleColor == "grey") {
+					this.toggleColor = "light"
+				} else {
+					this.toggleColor = "grey"
+				}
+			},
+			doReorder(event) {
+				let itemToMove = this.order.splice(event.detail.from, 1)[0]
+				this.order.splice(event.detail.to, 0, itemToMove)
+				event.detail.complete()
+				this.$store.commit("updateOrder", this.order)
 			}
-		},
+		}
 	})
 </script>
 
 <style scoped>
-	#container {
-		text-align: center;
+#container {
+	text-align: center;
 
-		position: relative;
-		left: 0;
-		right: 0;
-		top: 5%;
-	}
+	position: relative;
+	left: 0;
+	right: 0;
+	top: 5%;
+}
 
-	#container strong {
-		font-size: 20px;
-		line-height: 26px;
-	}
+#container strong {
+	font-size: 20px;
+	line-height: 26px;
+}
 
-	#container p {
-		font-size: 16px;
-		line-height: 22px;
+#container p {
+	font-size: 16px;
+	line-height: 22px;
 
-		color: #8c8c8c;
+	color: #8c8c8c;
 
-		margin: 0;
-	}
+	margin: 0;
+}
 
-	#container a {
-		text-decoration: none;
-	}
+#container a {
+	text-decoration: none;
+}
 </style>
