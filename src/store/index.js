@@ -37,7 +37,7 @@ export default createStore({
 				sub: "Calculates Stagnation Pressure",
 			},
 			{
-				title: "Energy Equation",
+				title: "Energy-Equation",
 				path: "/energy",
 				sub: "Calculates Energy Equation",
 			},
