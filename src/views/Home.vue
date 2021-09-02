@@ -18,7 +18,7 @@
 		</ion-content>
 		<ion-fab horizontal="start" vertical="bottom" slot="fixed">
 			<ion-fab-button :color="toggleColor" @click="reordToggle()">
-				<ion-icon :icon="menu"></ion-icon>
+				<ion-icon :icon="swapVerticalOutline"></ion-icon>
 			</ion-fab-button>
 		</ion-fab>
 		<Help></Help>
@@ -41,7 +41,7 @@
 		IonFabButton
 	} from "@ionic/vue"
 
-	import { menu } from "ionicons/icons"
+	import { swapVerticalOutline } from "ionicons/icons"
 	import { defineComponent } from "vue"
 	import Help from "../components/help.vue"
 	import Header from "../components/header.vue"
@@ -49,7 +49,7 @@
 
 	export default defineComponent({
 		setup() {
-			return { menu }
+			return { swapVerticalOutline }
 		},
 		components: {
 			IonPage,

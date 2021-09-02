@@ -5,7 +5,7 @@ import { autoUpdater } from "electron-updater"
 const path = require("path")
 const isDevelopment = process.env.NODE_ENV !== "production"
 let updateLater = false
-let windowWidth = !process.env.IS_TEST ? 1000 : 650
+let windowWidth = isDevelopment ? 1000 : 650
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 

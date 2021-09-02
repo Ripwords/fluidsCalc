@@ -15,8 +15,8 @@
                         Home
                     </ion-label>
                 </ion-item>
-                <div v-for="num in order" :key="items[num].title" button @click="menuNavigation(items[num].path)">
-                    <ion-item v-if="items[num].show">
+                <div v-for="num in order" :key="items[num].title">
+                    <ion-item v-if="items[num].show" button @click="menuNavigation(items[num].path)">
                         <ion-label>
                             {{ items[num].title }}
                         </ion-label>

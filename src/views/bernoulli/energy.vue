@@ -92,14 +92,14 @@ export default defineComponent({
     computed: {
         p1Show() {
             if (this.p2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(this.rho * ((1000*this.p2/this.rho) + (this.v2**2 / 2) + 9.81*(this.z2 - this.z1) - (this.v1**2 /2))).toFixed(this.$store.state.decimal)
+                return parseFloat(this.rho * ((1000*this.p2/this.rho) + (this.v2**2 / 2) + 9.81*(this.z2 - this.z1) - (this.v1**2 /2))/1000).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
         },
         p2Show() {
             if (this.p1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.rho != "") {
-                return parseFloat(this.rho * ((1000*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))).toFixed(this.$store.state.decimal)
+                return parseFloat(this.rho * ((1000*this.p1/this.rho) + (this.v1**2 / 2) + 9.81*(this.z1 - this.z2) - (this.v2**2 /2))/1000).toFixed(this.$store.state.decimal)
             } else {
                 return ""
             }
@@ -155,11 +155,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.output {
-  width: 100%;
-  margin-right: 13.5%;
-}
-
 #container {
   text-align: center;
   
