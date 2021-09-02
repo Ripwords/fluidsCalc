@@ -67,6 +67,22 @@ const routes = [
 		name: "stagnation",
 		component: () => import("../views/stagnation.vue"),
 	},
+	{
+		path: "/energy/",
+		name: "energy",
+		redirect: "/energy/eEqn",
+		component: () => import("../views/energyEqn.vue"),
+		children: [
+			{
+				path: "eEqn",
+				component: () => import("../views/energy/eEqn.vue")
+			},
+			{
+				path: "hEqn",
+				component: () => import("../views/energy/hEqn.vue")
+			}
+		]
+	}
 ]
 
 const router = createRouter({

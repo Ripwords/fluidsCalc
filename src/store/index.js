@@ -4,7 +4,7 @@ import VuexPersistence from "vuex-persist"
 export default createStore({
 	state: {
 		decimal: 4,
-		order: [0, 1, 2, 3, 4, 5],
+		order: [0, 1, 2, 3, 4, 5, 6],
 		pages: [
 			{
 				title: "Interpolator",
@@ -35,6 +35,11 @@ export default createStore({
 				title: "Stagnation Pressure",
 				path: "/stagnation",
 				sub: "Calculates Stagnation Pressure",
+			},
+			{
+				title: "Energy Equation",
+				path: "/energy",
+				sub: "Calculates Energy Equation",
 			},
 		],
 	},

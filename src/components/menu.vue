@@ -4,6 +4,9 @@
             <ion-toolbar>
                 <ion-title>Fluids Calculator</ion-title>
             </ion-toolbar>
+            <ion-toolbar>
+                <ion-searchbar @ionInput="search($event)"></ion-searchbar>
+            </ion-toolbar>
         </ion-header>
         <ion-content>
             <ion-list>
@@ -12,11 +15,13 @@
                         Home
                     </ion-label>
                 </ion-item>
-                <ion-item v-for="num in order" :key="items[num].title" button @click="menuNavigation(items[num].path)">
-                    <ion-label>
-                        {{ items[num].title }}
-                    </ion-label>
-                </ion-item>
+                <div v-for="num in order" :key="items[num].title" button @click="menuNavigation(items[num].path)">
+                    <ion-item v-if="items[num].show">
+                        <ion-label>
+                            {{ items[num].title }}
+                        </ion-label>
+                    </ion-item>
+                </div>
             </ion-list>
         </ion-content>
         <ion-item>
@@ -40,6 +45,7 @@ import {
     IonList,
     IonLabel,
     IonInput,
+    IonSearchbar,
     menuController
 } from "@ionic/vue";
 export default {
@@ -52,7 +58,8 @@ export default {
         IonItem,
         IonList,
         IonLabel,
-        IonInput
+        IonInput,
+        IonSearchbar
     },
     beforeCreate() {
         window.ipcRenderer.send("app_version")
@@ -66,16 +73,28 @@ export default {
             version: "",
             decimal: "",
             order: this.$store.state.order,
-            items: this.$store.state.pages
+            items: [...this.$store.state.pages],
         }
     },
     mounted() {
         this.decimal = this.$store.state.decimal
+        this.items.forEach(item => {
+            item.show = true
+        })
     },  
     methods:{
         menuNavigation(url){
             menuController.close("app-menu")
             this.$router.push(url);
+        },
+        search(event) {
+            const query = event.target.value.toLowerCase()
+            requestAnimationFrame(() => {
+                this.items.forEach(item => {
+                    const shouldShow = item.title.toLowerCase().indexOf(query) > -1
+                    item.show = shouldShow ? true : false
+                })
+            })
         }
     },
     computed: {

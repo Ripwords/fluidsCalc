@@ -5,13 +5,14 @@ import { autoUpdater } from "electron-updater"
 const path = require("path")
 const isDevelopment = process.env.NODE_ENV !== "production"
 let updateLater = false
+let windowWidth = !process.env.IS_TEST ? 1000 : 650
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }])
 
 async function createWindow() {
 	// Create the browser window.
 	const win = new BrowserWindow({
-		width: 650,
+		width: windowWidth,
 		height: 750,
 		frame: false,
 		webPreferences: {

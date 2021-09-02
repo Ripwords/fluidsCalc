@@ -43,7 +43,7 @@ export default defineComponent({
         clear: {
             type: Function,
             default: function() {
-                console.log("No clear functino provided")
+                console.log("No clear function provided")
             }
         }
     },

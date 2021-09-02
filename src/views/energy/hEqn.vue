@@ -4,7 +4,7 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img src="">
+                <img src="/img/energyHeadEqn.png">
                 <br>
                 <br>
                 <ion-list>
@@ -36,9 +36,9 @@ import {
     defineComponent
 } from 'vue'
 
-import Help from '../components/help.vue'
-import Header from '../components/header.vue'
-import Exit from '../components/exit.vue'
+import Help from '../../components/help.vue'
+import Header from '../../components/header.vue'
+import Exit from '../../components/exit.vue'
 
 export default defineComponent({
     components: {
