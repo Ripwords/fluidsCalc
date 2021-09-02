@@ -55,8 +55,11 @@ export default createStore({
 		},
 		updateOrder(state, newOrder) {
 			state.order = newOrder
-			console.log(state.order)
 		},
 	},
-	plugins: [new VuexPersistence().plugin],
+	plugins: [
+		new VuexPersistence({
+			modules: ["decimal", "order"],
+		}).plugin,
+	],
 })
