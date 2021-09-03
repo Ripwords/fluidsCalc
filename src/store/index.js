@@ -4,7 +4,7 @@ import VuexPersistence from "vuex-persist"
 export default createStore({
 	state: {
 		decimal: 4,
-		order: [0, 1, 2, 3, 4, 5, 6],
+		order: [0, 1, 2, 3, 4, 5, 6, 7],
 		pages: [
 			{
 				title: "Interpolator",
@@ -40,6 +40,11 @@ export default createStore({
 				title: "Energy-Equation",
 				path: "/energy",
 				sub: "Calculates Energy Equation",
+			},
+			{
+				title: "Momentum Analysis",
+				path: "/momentum",
+				sub: "Calculates Force and Momentum for fluids",
 			},
 		],
 	},

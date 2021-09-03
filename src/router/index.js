@@ -75,14 +75,19 @@ const routes = [
 		children: [
 			{
 				path: "eEqn",
-				component: () => import("../views/energy/eEqn.vue")
+				component: () => import("../views/energy/eEqn.vue"),
 			},
 			{
 				path: "hEqn",
-				component: () => import("../views/energy/hEqn.vue")
-			}
-		]
-	}
+				component: () => import("../views/energy/hEqn.vue"),
+			},
+		],
+	},
+	{
+		path: "/momentum",
+		name: "momentum",
+		component: () => import("../views/momentum.vue"),
+	},
 ]
 
 const router = createRouter({
