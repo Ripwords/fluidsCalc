@@ -96,4 +96,5 @@ const router = createRouter({
 	mode: "hash",
 })
 
+
 export default router
