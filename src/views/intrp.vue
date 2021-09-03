@@ -4,7 +4,7 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img class="invert" src="/img/equation.png" width=320 height=75>
+                <img class="invert" src="/img/equation.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>
                 <ion-list>
@@ -33,7 +33,7 @@
                 <br>
                 <ion-list>
                 <ion-item>
-                    <strong>Output : </strong>
+                    <strong>y : </strong>
                     <strong id="output" v-if="isNaN(interpolate) == false">&nbsp;{{ interpolate == "" ? "" : parseFloat(interpolate).toFixed(this.$store.state.decimal) }}</strong>
                 </ion-item>
                 </ion-list>

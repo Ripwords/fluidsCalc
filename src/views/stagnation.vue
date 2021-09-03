@@ -4,7 +4,7 @@
         <ion-content :fullscreen="true">
             <Exit></Exit>
             <div id="container">
-                <img class="invert" src="/img/stagnation.png" width="250" height="75">
+                <img class="invert" src="/img/stagnation.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>
                 <ion-list>
