@@ -44,6 +44,7 @@
                 <br>
                 <ion-item>
                     <ion-label v-if="selection == 'vave'">V<sub>avg</sub> : </ion-label>
+                    <ion-label v-if="selection == 'flowRate'">Flow Rate : </ion-label>
                     <ion-input v-if="selection == 'vave'" :value="vaveShow" readonly></ion-input>
                     <ion-input v-if="selection == 'flowRate'" :value="FRShow" readonly></ion-input>
                 </ion-item>
