@@ -11,6 +11,11 @@ module.exports = {
 				win: {
 					icon: "public/assets/icon/favicon.png",
 				},
+				nsis: {
+					allowToChangeInstallationDirectory: true,
+					installationIcon: "public/assets/icon/favicon.png",
+					uninstallerIcon: "public/assets/icon/favicon.png",
+				},
 			},
 		},
 	},
