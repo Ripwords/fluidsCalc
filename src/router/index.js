@@ -88,6 +88,30 @@ const routes = [
 		name: "momentum",
 		component: () => import("../views/momentum.vue"),
 	},
+	{
+		path: "/internalFlow/",
+		name: "internalFlow",
+		redirect: "/internalFlow/re",
+		component: () => import("../views/internalFlow.vue"),
+		children: [
+			{
+				path: "re",
+				component: () => import("../views/internalFlow/re.vue"),
+			},
+			{
+				path: "lamFriction",
+				component: () => import("../views/internalFlow/lamFriction.vue"),
+			},
+			{
+				path: "loss",
+				component: () => import("../views/internalFlow/loss.vue"),
+			},
+			{
+				path: "laminar",
+				component: () => import("../views/internalFlow/laminar.vue"),
+			},
+		],
+	},
 ]
 
 const router = createRouter({

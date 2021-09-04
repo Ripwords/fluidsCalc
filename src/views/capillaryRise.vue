@@ -85,7 +85,7 @@ export default defineComponent({
         height() {
             if (this.surfaceT != "" && this.density != "" && this.radius != "" && this.angle != "")
             {
-                return parseFloat(2000 * this.surfaceT * Math.cos(this.angle) / (this.density * 9.81 * this.radius))
+                return parseFloat(2000 * this.surfaceT * Math.cos(this.angle*Math.PI/180) / (this.density * 9.81 * this.radius))
             } else {
                 return ""
             }

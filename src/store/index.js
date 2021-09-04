@@ -4,7 +4,7 @@ import { createStore } from "vuex"
 export default createStore({
 	state: {
 		decimal: 4,
-		order: [0, 1, 2, 3, 4, 5, 6, 7],
+		order: [0, 1, 2, 3, 4, 5, 6, 7, 8],
 		pages: [
 			{
 				title: "Interpolator",
@@ -45,6 +45,11 @@ export default createStore({
 				title: "Momentum Analysis",
 				path: "/momentum",
 				sub: "Calculates Force and Momentum for fluids",
+			},
+			{
+				title: "Internal Flow",
+				path: "/internalFlow",
+				sub: "Calculates internal flow related equations",
 			},
 		],
 	},

@@ -1,6 +1,6 @@
 {
   "name": "fluids_calc",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "An Ionic project",
   "author": "JJ Teoh",
   "scripts": {
@@ -26,6 +26,7 @@
     "@ionic/vue-router": "^5.4.0",
     "core-js": "^3.6.5",
     "electron-updater": "^4.3.9",
+    "nerdamer": "^1.1.12",
     "vue": "^3.2.1",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
