@@ -14,6 +14,7 @@ module.exports = {
 				nsis: {
 					allowToChangeInstallationDirectory: true,
 					installerHeaderIcon: "public/assets/icon/favicon.png",
+					oneClick: false,
 				},
 			},
 		},
