@@ -6,42 +6,41 @@
             <div id="container">
                 <ion-list>
                     <ion-item>
+                        <ion-label>Re : </ion-label>
+                        <ion-input v-model="re" type="number" placeholder="Enter Reynold's Number"></ion-input>
+                    </ion-item>
+                    <ion-item v-if="parseFloat(re) >= 2301">
                         <ion-label>Type of flow : </ion-label>
                         <ion-select v-model="flow" interface="popover">
-                            <ion-select-option value="lam">Laminar</ion-select-option>
                             <ion-select-option value="turbC">Turbulent ( Colebrook )</ion-select-option>
                             <ion-select-option value="turbH">Turbulent ( Haaland )</ion-select-option>
                         </ion-select>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label>Re : </ion-label>
-                        <ion-input v-model="re" type="number" placeholder="Enter Reynold's Number"></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>
                 <br>
 
-                <img v-if="flow == 'lam'" class="invert" src="/img/lamFriction.png" style="padding-left: 2%; padding-right: 2%;">
-                <br v-if="flow == 'lam'">
-                <br v-if="flow == 'lam'">
-                <br v-if="flow == 'lam'">
-                <ion-list v-if="flow == 'lam'">
+                <img v-if="re <= 2300" class="invert" src="/img/lamFriction.png" style="padding-left: 2%; padding-right: 2%;">
+                <br v-if="re <= 2300">
+                <br v-if="re <= 2300">
+                <br v-if="re <= 2300">
+                <ion-list v-if="re <= 2300">
                     <ion-item>
                         <ion-label>Eqn : </ion-label>
                         <ion-input v-model="eqn" placeholder="Enter Friction Equation ( 64/Re )"></ion-input>
                     </ion-item>
                 </ion-list>
 
-                <img v-if="flow == 'turbH'" class="invert" src="/img/haaland.png" style="padding-left: 2%; padding-right: 2%;">
-                <br v-if="flow == 'turbH'">
-                <br v-if="flow == 'turbH'">
-                <br v-if="flow == 'turbH'">
+                <img v-if="flow == 'turbH' && parseFloat(re) >= 2301" class="invert" src="/img/haaland.png" style="padding-left: 2%; padding-right: 2%;">
+                <br v-if="flow == 'turbH' && parseFloat(re) >= 2301">
+                <br v-if="flow == 'turbH' && parseFloat(re) >= 2301">
+                <br v-if="flow == 'turbH' && parseFloat(re) >= 2301">
 
-                <img v-if="flow == 'turbC'" class="invert" src="/img/turbFriction.png" style="padding-left: 2%; padding-right: 2%;">
-                <br v-if="flow == 'turbC'">
-                <br v-if="flow == 'turbC'">
-                <br v-if="flow == 'turbC'">
-                <ion-list v-if="flow == 'turbC' || flow == 'turbH'">
+                <img v-if="flow == 'turbC' && parseFloat(re) >= 2301" class="invert" src="/img/turbFriction.png" style="padding-left: 2%; padding-right: 2%;">
+                <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
+                <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
+                <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
+                <ion-list v-if="flow == 'turbC' || flow == 'turbH' && parseFloat(re) >= 2301">
                     <ion-item>
                         <ion-label>&epsilon; : </ion-label>
                         <ion-input v-model="e" placeholder="Enter Roughness ( mm )"></ion-input>
@@ -108,7 +107,7 @@ export default defineComponent({
             eqn: "",
             e: "",
             d: "",
-            flow: "lam"
+            flow: "turbC"
         }
     },
     computed: {
@@ -167,7 +166,6 @@ export default defineComponent({
                 this.e = ""
                 this.d = ""
             }
-            this.re = ""
         }
     }
 })
