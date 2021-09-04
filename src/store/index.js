@@ -1,5 +1,5 @@
 import { createStore } from "vuex"
-// import VuexPersistence from "vuex-persist"
+import VuexPersistence from "vuex-persist"
 
 export default createStore({
 	state: {
@@ -67,5 +67,5 @@ export default createStore({
 			state.order = newOrder
 		},
 	},
-	// plugins: [new VuexPersistence().plugin],
+	plugins: [new VuexPersistence().plugin],
 })
