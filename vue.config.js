@@ -13,8 +13,7 @@ module.exports = {
 				},
 				nsis: {
 					allowToChangeInstallationDirectory: true,
-					installationIcon: "public/assets/icon/favicon.png",
-					uninstallerIcon: "public/assets/icon/favicon.png",
+					installerHeaderIcon: "public/assets/icon/favicon.png",
 				},
 			},
 		},
