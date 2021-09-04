@@ -14,7 +14,7 @@
                         <ion-input v-else type="number" :value=alphaShow readonly></ion-input>
 
                         <ion-label>&#7715;<sub>p</sub> : </ion-label>
-                        <ion-input v-if="!pumpShow" v-model="pump" type="number" placeholder="Enter Pump Power ( kW )"></ion-input>
+                        <ion-input v-if="!pumpShow" v-model="pump" type="number" placeholder="Enter Pump Head ( m )"></ion-input>
                         <ion-input v-else type="number" :value=pumpShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
@@ -55,11 +55,11 @@
                     </ion-item>
                     <ion-item>
                         <ion-label>&#7715;<sub>t</sub> : </ion-label>
-                        <ion-input v-if="!turbineShow" v-model="turbine" type="number" placeholder="Enter Turbine Power ( kW )"></ion-input>
+                        <ion-input v-if="!turbineShow" v-model="turbine" type="number" placeholder="Enter Turbine Head ( m )"></ion-input>
                         <ion-input v-else type="number" :value=turbineShow readonly></ion-input>
 
                         <ion-label>&#7715;<sub>L</sub> : </ion-label>
-                        <ion-input v-if="!lossShow" v-model="loss" type="number" placeholder="Enter loss ( kW )"></ion-input>
+                        <ion-input v-if="!lossShow" v-model="loss" type="number" placeholder="Enter head loss ( m )"></ion-input>
                         <ion-input v-else type="number" :value=lossShow readonly></ion-input>
                     </ion-item>
                 </ion-list>
