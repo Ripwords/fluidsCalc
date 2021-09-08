@@ -142,14 +142,14 @@ export default defineComponent({
         },
         p1Show() {
             if (this.mFR != "" && this.alpha != "" && this.p2 != "" && this.rho1 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat((this.rho1)*(((this.mFR*(1000*this.p2/this.rho2+(this.alpha/2)*(this.v2**2)+9.81*this.z2)+1000*(parseFloat(this.loss)+parseFloat(this.turbine)-this.pump))/this.mFR)-(this.alpha*this.v1**2/2)-(9.81*this.z1))/1000).toFixed(this.$store.state.decimal) 
+                return parseFloat(((this.rho1)*(((this.mFR*(1000*this.p2/this.rho2+(this.alpha/2)*(this.v2**2)+9.81*this.z2)+1000*(parseFloat(this.loss)+parseFloat(this.turbine)-this.pump))/this.mFR)-(this.alpha*this.v1**2/2)-(9.81*this.z1)))/1000).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         p2Show() {
             if (this.mFR != "" && this.alpha != "" && this.p1 != "" && this.rho1 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat((this.rho2)*(((this.mFR*(1000*this.p1/this.rho1+(this.alpha/2)*(this.v1**2)+9.81*this.z1)-1000*(parseFloat(this.loss)+parseFloat(this.turbine)-this.pump))/this.mFR)-(this.alpha*this.v2**2/2)-(9.81*this.z2))/1000).toFixed(this.$store.state.decimal) 
+                return parseFloat(((this.rho2)*(((this.mFR*(1000*this.p1/this.rho1+(this.alpha/2)*(this.v1**2)+9.81*this.z1)-1000*(parseFloat(this.loss)+parseFloat(this.turbine)-this.pump))/this.mFR)-(this.alpha*this.v2**2/2)-(9.81*this.z2)))/1000).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
@@ -198,21 +198,21 @@ export default defineComponent({
         },
         pumpShow() {
             if (this.mFR != "" && this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.mFR*(this.p2*1000/this.rho2-this.p1*1000/this.rho1+(this.alpha/2)*(this.v2**2-this.v1**2)+9.81*(this.z2-this.z1))+1000*(parseFloat(this.turbine)+parseFloat(this.loss))/1000).toFixed(this.$store.state.decimal) 
+                return parseFloat((this.mFR*(this.p2*1000/this.rho2-this.p1*1000/this.rho1+(this.alpha/2)*(this.v2**2-this.v1**2)+9.81*(this.z2-this.z1))+1000*(parseFloat(this.turbine)+parseFloat(this.loss)))/1000).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         turbineShow() {
             if (this.mFR != "" && this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.loss != "") {
-                return parseFloat(this.mFR*(this.p1*1000/this.rho1-this.p2*1000/this.rho2+(this.alpha/2)*(this.v1**2-this.v2**2)+9.81*(this.z1-this.z2))+1000*(parseFloat(this.pump)-this.loss)/1000).toFixed(this.$store.state.decimal) 
+                return parseFloat((this.mFR*(this.p1*1000/this.rho1-this.p2*1000/this.rho2+(this.alpha/2)*(this.v1**2-this.v2**2)+9.81*(this.z1-this.z2))+1000*(parseFloat(this.pump)-this.loss))/1000).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         lossShow() {
             if (this.mFR != "" && this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "") {
-                return parseFloat(this.mFR*(this.p1*1000/this.rho1-this.p2*1000/this.rho2+(this.alpha/2)*(this.v1**2-this.v2**2)+9.81*(this.z1-this.z2))+1000*(parseFloat(this.pump)-this.turbine)/1000).toFixed(this.$store.state.decimal)
+                return parseFloat((this.mFR*(this.p1*1000/this.rho1-this.p2*1000/this.rho2+(this.alpha/2)*(this.v1**2-this.v2**2)+9.81*(this.z1-this.z2))+1000*(parseFloat(this.pump)-this.turbine))/1000).toFixed(this.$store.state.decimal)
             } else {                
                 return ""
             }
