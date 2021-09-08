@@ -122,84 +122,84 @@ export default defineComponent({
     computed: {
         alphaShow() {
             if (this.p1 != "" && this.p2 != "" && this.rho1 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.v1**2-this.v2**2)/(2*9.81))).toFixed(this.$store.state.decimal) 
+                return parseFloat(((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.v1**2-this.v2**2)/(2*9.81))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         p1Show() {
             if (this.alpha != "" && this.p2 != "" && this.rho1 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.rho1/1000*9.81*(this.p2*1000/(this.rho2*9.81)+(this.alpha/(2*9.81))*(this.v2**2-this.v1**2)+(this.z2-this.z1)+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
+                return parseFloat(this.rho1/1000*9.81*(this.p2*1000/(this.rho2*9.81)+(this.alpha/(2*9.81))*(this.v2**2-this.v1**2)+(this.z2-this.z1)+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         p2Show() {
             if (this.alpha != "" && this.p1 != "" && this.rho1 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.rho2/1000*9.81*(this.p1*1000/(this.rho1*9.81)+(this.alpha/(2*9.81))*(this.v1**2-this.v2**2)+(this.z1-this.z2)-1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
+                return parseFloat(this.rho2/1000*9.81*(this.p1*1000/(this.rho1*9.81)+(this.alpha/(2*9.81))*(this.v1**2-this.v2**2)+(this.z1-this.z2)-(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         rho1Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.p1*1000/(9.81*(this.p2*1000/(this.rho2*9.81)+(this.alpha/(2*9.81))*(this.v2**2-this.v1**2)+(this.z2-this.z1)+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)))).toFixed(this.$store.state.decimal) 
+                return parseFloat(this.p1*1000/(9.81*(this.p2*1000/(this.rho2*9.81)+(this.alpha/(2*9.81))*(this.v2**2-this.v1**2)+(this.z2-this.z1)+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         rho2Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.p2*1000/(9.81*(this.p1*1000/(this.rho1*9.81)+(this.alpha/(2*9.81))*(this.v1**2-this.v2**2)+(this.z1-this.z2)-1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)))).toFixed(this.$store.state.decimal) 
+                return parseFloat(this.p2*1000/(9.81*(this.p1*1000/(this.rho1*9.81)+(this.alpha/(2*9.81))*(this.v1**2-this.v2**2)+(this.z1-this.z2)-(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         v1Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(Math.sqrt(((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.alpha)/(2*9.81))+this.v2**2)).toFixed(this.$store.state.decimal)
+                return parseFloat(Math.sqrt(((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.alpha)/(2*9.81))+this.v2**2)).toFixed(this.$store.state.decimal)
             } else {                
                 return ""
             }
         },
         v2Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-               return parseFloat(Math.sqrt(this.v1**2-((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.alpha)/(2*9.81)))).toFixed(this.$store.state.decimal)
+               return parseFloat(Math.sqrt(this.v1**2-((this.p2*1000/(this.rho2*9.81))-(this.p1*1000/(this.rho1*9.81))+parseFloat(this.z2)-this.z1+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))/((this.alpha)/(2*9.81)))).toFixed(this.$store.state.decimal)
             } else {                
                 return ""
             }
         },
         z1Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z2 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)).toFixed(this.$store.state.decimal) 
+                return parseFloat((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump)).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         z2Show() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.pump != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(this.z1-((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+1000*(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
+                return parseFloat(this.z1-((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+(parseFloat(this.turbine)+parseFloat(this.loss)-this.pump))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         pumpShow() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.turbine != "" && this.loss != "") {
-                return parseFloat(0.001*((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.turbine)+parseFloat(this.loss)))).toFixed(this.$store.state.decimal) 
+                return parseFloat(((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)-this.z1+(parseFloat(this.turbine)+parseFloat(this.loss)))).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         turbineShow() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.loss != "") {
-                return parseFloat(0.001*(1000*this.pump-((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.loss))))).toFixed(this.$store.state.decimal) 
+                return parseFloat((this.p1/(0.001*9.81*this.rho1))-(this.p2/(0.001*9.81*this.rho2))+((this.alpha/(2*9.81))*(this.v1**2-this.v2**2))+(this.z1-this.z2)+(this.pump-this.loss)).toFixed(this.$store.state.decimal) 
             } else {                
                 return ""
             }
         },
         lossShow() {
             if (this.alpha != "" && this.p1 != "" && this.p2 != "" && this.rho2 != "" && this.rho1 != "" && this.v1 != "" && this.v2 != "" && this.z1 != "" && this.z2 != "" && this.pump != "" && this.turbine != "") {
-                return parseFloat(0.001*(1000*this.pump-((1000*this.p2/(this.rho2*9.81))-(1000*this.p1/(this.rho1*9.81))+((this.alpha/(2*9.81))*(this.v2**2-this.v1**2))+parseFloat(this.z2)-this.z1+1000*(parseFloat(this.turbine))))).toFixed(this.$store.state.decimal)
+                return parseFloat((this.p1/(0.001*9.81*this.rho1))-(this.p2/(0.001*9.81*this.rho2))+((this.alpha/(2*9.81))*(this.v1**2-this.v2**2))+(this.z1-this.z2)+(this.pump-this.turbine)).toFixed(this.$store.state.decimal)
             } else {                
                 return ""
             }
