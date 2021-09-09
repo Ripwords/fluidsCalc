@@ -32,13 +32,15 @@
                     <ion-input v-else type="number" :value=fShow readonly></ion-input>
                 </ion-item>
                 <br>
-                <ion-item v-for="(e, ind) in (parseInt(noIn) > parseInt(noOut) ? parseInt(noIn) : parseInt(noOut))" :key="ind">
-                    <ion-label v-if="(parseInt(noOut))-e >= 0">V<sub>out {{ e }}</sub> : </ion-label>
-                    <ion-input v-if="(parseInt(noOut))-e >= 0" v-model="sumOut[ind]" type="number"></ion-input>
+                <div v-if="noOut > 0 && noIn > 0">
+                    <ion-item v-for="(e, ind) in (parseInt(noIn) > parseInt(noOut) ? parseInt(noIn) : parseInt(noOut))" :key="ind">
+                        <ion-label v-if="(parseInt(noOut))-e >= 0">V<sub>out {{ e }}</sub> : </ion-label>
+                        <ion-input v-if="(parseInt(noOut))-e >= 0" v-model="sumOut[ind]" type="number"></ion-input>
 
-                    <ion-label v-if="(parseInt(noIn))-e >= 0">V<sub>in {{ e }}</sub> : </ion-label>
-                    <ion-input v-if="(parseInt(noIn))-e >= 0" v-model="sumIn[ind]" type="number"></ion-input>
-                </ion-item>
+                        <ion-label v-if="(parseInt(noIn))-e >= 0">V<sub>in {{ e }}</sub> : </ion-label>
+                        <ion-input v-if="(parseInt(noIn))-e >= 0" v-model="sumIn[ind]" type="number"></ion-input>
+                    </ion-item>
+                </div>
                 <br>
                 <ion-button color="dark" @click="clear()" id="clear">Clear</ion-button>
             </div>
