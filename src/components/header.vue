@@ -1,7 +1,7 @@
 <template>
     <ion-header :translucent="true" id="tbar">
         <ion-toolbar>
-            <ion-button id="menuButton" @click="openMenu(); clear();" slot="start" color="light">
+            <ion-button id="menuButton" @click="openMenu();" slot="start" color="light">
                 <ion-icon :icon="menu"></ion-icon>
             </ion-button>
             <ion-title>{{ title }}</ion-title>

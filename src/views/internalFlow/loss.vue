@@ -197,12 +197,9 @@ export default defineComponent({
             this.d = "",
             this.rho = "",
             this.l = "",
-            this.f = ""
-        }
-    },
-    watch: {
-        selection: function() {
-            this.clear()
+            this.f = "",
+            this.pl = "",
+            this.hl = ""
         }
     }
 })
