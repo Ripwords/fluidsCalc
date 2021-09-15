@@ -8,12 +8,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service electron:build --win --publish always",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "lint": "vue-cli-service lint"
   },
   "main": "main.js",
   "dependencies": {
@@ -25,7 +20,6 @@
     "@ionic/vue": "^5.4.0",
     "@ionic/vue-router": "^5.4.0",
     "core-js": "^3.6.5",
-    "electron-updater": "^4.3.9",
     "nerdamer": "^1.1.12",
     "vue": "^3.2.1",
     "vue-router": "^4.0.0-0",
@@ -34,7 +28,6 @@
   },
   "devDependencies": {
     "@capacitor/cli": "3.2.0",
-    "@types/electron-devtools-installer": "^2.2.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -44,11 +37,8 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0-0",
     "@vue/test-utils": "^2.0.0-0",
-    "electron": "^13.0.0",
-    "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
-    "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-jest": "^5.0.0-0"
   },
   "repository": "https://github.com/Ripwords/fluidsCalc"

@@ -61,9 +61,7 @@ export default defineComponent({
         IonList,
         IonItem,
         IonLabel,
-        Help,
         Header,
-        Exit
     },
     data() {
         return {

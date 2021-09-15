@@ -28,6 +28,7 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/dist
 
 #Electron-builder output
 /dist_electron
