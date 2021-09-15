@@ -25,7 +25,10 @@ import "./theme/variables.css"
 import store from "./store"
 import './registerServiceWorker'
 const app = createApp(App).use(store)
-  .use(IonicVue)
+  .use(IonicVue, {
+    rippleEffect: false,
+    mode: 'md'
+  })
   .use(router);
 
 router.isReady().then(() => {
