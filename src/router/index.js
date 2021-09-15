@@ -1,4 +1,4 @@
-import { createRouter } from "@ionic/vue-router"
+import { createRouter, createWebHashHistory } from "@ionic/vue-router"
 import home from "../views/Home.vue"
 
 const routes = [
@@ -115,9 +115,9 @@ const routes = [
 ]
 
 const router = createRouter({
-	// history: createWebHashHistory(process.env.BASE_URL),
+	history: createWebHashHistory(process.env.BASE_URL),
 	routes,
-	// mode: "hash",
+	mode: "hash",
 })
 
 
