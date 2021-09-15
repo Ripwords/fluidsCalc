@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "@ionic/vue-router"
-import home from "../views/home.vue"
+import home from "../views/Home.vue"
 
 const routes = [
 	{
