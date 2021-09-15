@@ -2,7 +2,6 @@
     <ion-page>
         <Header title="Internal Flow" :clear="clear"></Header>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
                 <img class="invert" src="/img/reynolds.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
@@ -46,7 +45,6 @@
                 <ion-button color="dark" @click="clear()" id="clear">Clear</ion-button>
             </div>
         </ion-content>
-        <Help></Help>
     </ion-page>
 </template>
 
@@ -67,9 +65,7 @@ import {
     defineComponent
 } from 'vue'
 
-import Help from '../../components/help.vue'
 import Header from '../../components/header.vue'
-import Exit from '../../components/exit.vue'
 
 export default defineComponent({
     components: {
@@ -80,9 +76,7 @@ export default defineComponent({
         IonList,
         IonItem,
         IonLabel,
-        Help,
         Header,
-        Exit,
         IonSelect,
         IonSelectOption
     },

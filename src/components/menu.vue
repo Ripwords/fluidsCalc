@@ -28,9 +28,6 @@
             <ion-label class="menu" position="floating">Decimal Place</ion-label>
             <ion-input class="menu" type="number" v-model="decimal" :value="dec" min="0" max="6"></ion-input>            
         </ion-item>
-        <ion-item>
-            <ion-label class="menu">{{ version }}</ion-label>
-        </ion-item>
     </ion-menu>
 </template>
 
@@ -60,13 +57,6 @@ export default {
         IonLabel,
         IonInput,
         IonSearchbar
-    },
-    beforeCreate() {
-        window.ipcRenderer.send("app_version")
-        window.ipcRenderer.receive("app_version", (args) => {
-            console.log(args.version)
-            this.version = "v " + args.version
-        })
     },
     data() {
         return {

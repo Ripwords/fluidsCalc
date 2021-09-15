@@ -2,7 +2,6 @@
 	<ion-page>
 		<Header title="Fluids Calculator"></Header>
 		<ion-content :fullscreen="true">
-			<Exit></Exit>
 			<div id="container">
 				<ion-reorder-group @ionItemReorder="doReorder($event)" :disabled="reord">
 					<ion-card v-for="num in order" :key="num" button @click="menuNavigation(cards[num].path)">
@@ -21,7 +20,6 @@
 				<ion-icon :icon="swapVerticalOutline"></ion-icon>
 			</ion-fab-button>
 		</ion-fab>
-		<Help></Help>
 	</ion-page>
 </template>
 
@@ -43,9 +41,7 @@
 
 	import { swapVerticalOutline } from "ionicons/icons"
 	import { defineComponent } from "vue"
-	import Help from "../components/help.vue"
 	import Header from "../components/header.vue"
-	import Exit from "../components/exit.vue"
 
 	export default defineComponent({
 		setup() {
@@ -63,9 +59,7 @@
 			IonFab,
 			IonFabButton,
 			IonIcon,
-			Help,
 			Header,
-			Exit,
 		},
 		data() {
 			return {

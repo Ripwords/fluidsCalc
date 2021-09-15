@@ -15,7 +15,7 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
-  "main": "background.js",
+  "main": "main.js",
   "dependencies": {
     "@capacitor/app": "1.0.2",
     "@capacitor/core": "3.2.0",
