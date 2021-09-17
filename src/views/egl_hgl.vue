@@ -3,11 +3,11 @@
         <ion-tabs>
             <ion-router-outlet></ion-router-outlet>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="HGL" href="/eglhgl/hgl">
+                <ion-tab-button tab="HGL" @click='switchTab("/eglhgl/hgl")'>
                     <ion-icon :icon="returnDownForwardOutline"></ion-icon>
                     <ion-label>HGL</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="EGL" href="/eglhgl/egl">
+                <ion-tab-button tab="EGL" @click='switchTab("/eglhgl/egl")'>
                     <ion-icon :icon="flameOutline"></ion-icon>
                     <ion-label>EGL</ion-label>
                 </ion-tab-button>
@@ -43,6 +43,11 @@ export default defineComponent({
         return {
             flameOutline,
             returnDownForwardOutline
+        }
+    },
+    methods: {
+        switchTab(url) {
+            this.$router.replace(url)
         }
     }
 });

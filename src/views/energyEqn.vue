@@ -3,11 +3,11 @@
         <ion-tabs>
             <ion-router-outlet></ion-router-outlet>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="Energy" href="/energy/eEqn">
+                <ion-tab-button tab="Energy" @click='switchTab("/energy/eEqn")'>
                     <ion-icon :icon="flameOutline"></ion-icon>
                     <ion-label>Energy</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="Head" href="/energy/hEqn">
+                <ion-tab-button tab="Head" @click='switchTab("/energy/hEqn")'>
                     <ion-icon :icon="returnDownForwardOutline"></ion-icon>
                     <ion-label>Head</ion-label>
                 </ion-tab-button>
@@ -43,6 +43,11 @@ export default defineComponent({
         return {
             flameOutline,
             returnDownForwardOutline
+        }
+    },
+    methods: {
+        switchTab(url) {
+            this.$router.replace(url)
         }
     }
 });

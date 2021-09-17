@@ -3,19 +3,19 @@
         <ion-tabs>
             <ion-router-outlet></ion-router-outlet>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="Re" href="/internalFlow/re">
+                <ion-tab-button tab="Re" @click='switchTab("/internalFlow/re")'>
                     <ion-icon :icon="calculator"></ion-icon>
                     <ion-label>Re</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="lamFriction" href="/internalFlow/lamFriction">
+                <ion-tab-button tab="lamFriction" @click='switchTab("/internalFlow/lamFriction")'>
                     <ion-icon :icon="calculator"></ion-icon>
                     <ion-label>Friction Factor</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="loss" href="/internalFlow/loss">
+                <ion-tab-button tab="loss" @click='switchTab("/internalFlow/loss")'>
                     <ion-icon :icon="calculator"></ion-icon>
                     <ion-label>Loss</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="laminar" href="/internalFlow/laminar">
+                <ion-tab-button tab="laminar" @click='switchTab("/internalFlow/laminar")'>
                     <ion-icon :icon="calculator"></ion-icon>
                     <ion-label>Laminar</ion-label>
                 </ion-tab-button>
@@ -50,6 +50,11 @@ export default defineComponent({
     setup() {
         return {
             calculator
+        }
+    },
+    methods: {
+        switchTab(url) {
+            this.$router.replace(url)
         }
     }
 });

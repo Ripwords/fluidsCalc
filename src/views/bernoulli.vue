@@ -3,15 +3,15 @@
         <ion-tabs>
             <ion-router-outlet></ion-router-outlet>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="Pressure" href="/bernoulli/pressure">
+                <ion-tab-button tab="Pressure" @click="switchTab('/bernoulli/pressure')">
                     <ion-icon :icon="cloudOutline"></ion-icon>
                     <ion-label>Pressure</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="Energy" href="/bernoulli/energy">
+                <ion-tab-button tab="Energy" @click="switchTab('/bernoulli/energy')">
                     <ion-icon :icon="flameOutline"></ion-icon>
                     <ion-label>Energy</ion-label>
                 </ion-tab-button>
-                <ion-tab-button tab="Head" href="/bernoulli/head">
+                <ion-tab-button tab="Head" @click="switchTab('/bernoulli/head')">
                     <ion-icon :icon="arrowUp"></ion-icon>
                     <ion-label>Head</ion-label>
                 </ion-tab-button>
@@ -48,6 +48,11 @@ export default defineComponent({
             flameOutline,
             arrowUp,
             cloudOutline
+        }
+    },
+    methods: {
+        switchTab(url) {
+            this.$router.replace(url)
         }
     }
 });
