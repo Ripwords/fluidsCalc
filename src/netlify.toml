@@ -1,6 +1,0 @@
-[[plugins]]
-package = "netlify-build-plugin-pushover"
-
-  [plugins.inputs]
-    successMessage = "deployed the site successfully 🎉"
-    errorMessage = "Latest build failed 😱\n\nCheck build's log for more details"
