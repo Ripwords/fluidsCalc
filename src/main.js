@@ -26,7 +26,6 @@ import store from "./store"
 import './registerServiceWorker'
 const app = createApp(App).use(store)
   .use(IonicVue, {
-    rippleEffect: false,
     mode: 'md'
   })
   .use(router);

@@ -75,7 +75,7 @@ export default {
     methods:{
         menuNavigation(url){
             menuController.close("app-menu")
-            this.$router.push(url);
+            this.$router.replace(url);
         },
         search(event) {
             const query = event.target.value.toLowerCase()

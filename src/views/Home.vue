@@ -72,7 +72,7 @@
 		methods: {
 			menuNavigation(url) {
 				menuController.close("app-menu")
-				this.$router.push(url)
+				this.$router.replace(url)
 			},
 			reordToggle() {
 				this.reord = !this.reord

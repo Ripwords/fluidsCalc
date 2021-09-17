@@ -1,7 +1,7 @@
 <template>
   <ion-app>
     <Menu></Menu>
-    <ion-router-outlet animated=false id="main"/>
+    <ion-router-outlet id="main"/>
   </ion-app>
 </template>
 
