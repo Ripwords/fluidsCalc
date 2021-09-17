@@ -9,22 +9,22 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>HGL : </ion-label>
-                        <ion-input v-if="!hglShow" v-model="hgl" type="number" placeholder="Enter HGL ( m )"></ion-input>
+                        <ion-input v-if="!hglShow" v-model="hgl" type="number" placeholder="HGL ( m )"></ion-input>
                         <ion-input v-else type="number" :value=hglShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
-                        <ion-input v-if="!pShow" v-model="p" type="number" placeholder="Enter Static Pressure ( kPa )"></ion-input>
+                        <ion-input v-if="!pShow" v-model="p" type="number" placeholder="Static Pressure ( kPa )"></ion-input>
                         <ion-input v-else type="number" :value=pShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&rho;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
-                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Enter Fluid Density ( kg/m^3 )"></ion-input>
+                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Fluid Density ( kg/m^3 )"></ion-input>
                         <ion-input v-else type="number" :value=rhoShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </ion-label>
-                        <ion-input v-if="!zShow" v-model="z" type="number" placeholder="Enter relative height ( m )"></ion-input>
+                        <ion-input v-if="!zShow" v-model="z" type="number" placeholder="relative height ( m )"></ion-input>
                         <ion-input v-else type="number" :value=zShow readonly></ion-input>
                     </ion-item>
                 </ion-list>

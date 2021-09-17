@@ -9,22 +9,22 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>&rho; : </ion-label>
-                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Enter Density ( kg/m^3 )"></ion-input>
+                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Density ( kg/m^3 )"></ion-input>
                         <ion-input v-else type="number" :value=rhoShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>P : </ion-label>
-                        <ion-input v-if="!PShow" v-model="p" type="number" placeholder="Enter Pressure ( kPa )"></ion-input>
+                        <ion-input v-if="!PShow" v-model="p" type="number" placeholder="Pressure ( kPa )"></ion-input>
                         <ion-input v-else type="number" :value=PShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>R : </ion-label>
-                        <ion-input v-if="!RShow" v-model="r" type="number" placeholder="Enter Gas Constant ( kPa*m^3/kg*K )"></ion-input>
+                        <ion-input v-if="!RShow" v-model="r" type="number" placeholder="Gas Constant ( kPa*m^3/kg*K )"></ion-input>
                         <ion-input v-else type="number" :value=RShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>T : </ion-label>
-                        <ion-input v-if="!TShow" v-model="t" type="number" placeholder="Enter Temperature ( K )"></ion-input>
+                        <ion-input v-if="!TShow" v-model="t" type="number" placeholder="Temperature ( K )"></ion-input>
                         <ion-input v-else type="number" :value=TShow readonly></ion-input>
                     </ion-item>
                 </ion-list>

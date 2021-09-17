@@ -16,31 +16,31 @@
                     </ion-item>
                     <ion-item>
                         <ion-label>V<sub>avg</sub> : </ion-label>
-                        <ion-input v-if="!v1Show && !v2Show" v-model="vave" type="number" placeholder="Enter Average Velocity ( m/s )"></ion-input>
+                        <ion-input v-if="!v1Show && !v2Show" v-model="vave" type="number" placeholder="Average Velocity ( m/s )"></ion-input>
                         <ion-input v-if="v1Show" :value="v1Show" readonly></ion-input>
                         <ion-input v-if="v2Show" :value="v2Show" readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&nbsp;f&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-if="!f1Show && !f2Show" v-model="f" type="number" placeholder="Enter Friction Factor"></ion-input>
+                        <ion-input v-if="!f1Show && !f2Show" v-model="f" type="number" placeholder="Friction Factor"></ion-input>
                         <ion-input v-if="f1Show" :value="f1Show" readonly></ion-input>
                         <ion-input v-if="f2Show" :value="f2Show" readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&nbsp;L&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-if="!l1Show && !l2Show" v-model="l" type="number" placeholder="Enter Length ( m )"></ion-input>
+                        <ion-input v-if="!l1Show && !l2Show" v-model="l" type="number" placeholder="Length ( m )"></ion-input>
                         <ion-input v-if="l1Show" :value="l1Show" readonly></ion-input>
                         <ion-input v-if="l2Show" :value="l2Show" readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&nbsp;D&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-if="!d1Show && !d2Show" v-model="d" type="number" placeholder="Enter Hydraulic Diameter ( m )"></ion-input>
+                        <ion-input v-if="!d1Show && !d2Show" v-model="d" type="number" placeholder="Hydraulic Diameter ( m )"></ion-input>
                         <ion-input v-if="d1Show" :value="d1Show" readonly></ion-input>
                         <ion-input v-if="d2Show" :value="d2Show" readonly></ion-input>
                     </ion-item>
                     <ion-item v-if="selection == 'p'">
                         <ion-label>&nbsp;&rho;&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Enter Fluid Density ( kg/m^3 )"></ion-input>
+                        <ion-input v-if="!rhoShow" v-model="rho" type="number" placeholder="Fluid Density ( kg/m^3 )"></ion-input>
                         <ion-input v-if="rhoShow" :value="rhoShow" readonly></ion-input>
                     </ion-item>
                 </ion-list>
@@ -49,8 +49,8 @@
                         <ion-label v-if="selection == 'h'">h<sub>L</sub>&nbsp;&nbsp; : </ion-label>
                         <ion-label v-if="selection == 'p'">P<sub>L</sub>&nbsp;&nbsp; : </ion-label>
 
-                        <ion-input v-model="hl" v-if="selection == 'h' && !hShow" type="number" placeholder="Enter Head Loss ( m )"></ion-input>
-                        <ion-input v-model="pl" v-if="selection == 'p' && !pShow" type="number" placeholder="Enter Pressure Drop ( kPa )"></ion-input>
+                        <ion-input v-model="hl" v-if="selection == 'h' && !hShow" type="number" placeholder="Head Loss ( m )"></ion-input>
+                        <ion-input v-model="pl" v-if="selection == 'p' && !pShow" type="number" placeholder="Pressure Drop ( kPa )"></ion-input>
 
                         <ion-input v-if="hShow" :value=hShow readonly></ion-input>
                         <ion-input v-if="pShow" :value=pShow readonly></ion-input>

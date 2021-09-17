@@ -9,56 +9,56 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>&alpha;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-if="!alphaShow" v-model="alpha" type="number" placeholder="Enter Correction Factor"></ion-input>
+                        <ion-input v-if="!alphaShow" v-model="alpha" type="number" placeholder="Correction Factor"></ion-input>
                         <ion-input v-else type="number" :value=alphaShow readonly></ion-input>
 
                         <ion-label>&#7715;<sub>p</sub> : </ion-label>
-                        <ion-input v-if="!pumpShow" v-model="pump" type="number" placeholder="Enter Pump Head ( m )"></ion-input>
+                        <ion-input v-if="!pumpShow" v-model="pump" type="number" placeholder="Pump Head ( m )"></ion-input>
                         <ion-input v-else type="number" :value=pumpShow readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>P<sub>1</sub> : </ion-label>
-                        <ion-input v-if="!p1Show" v-model="p1" type="number" placeholder="Enter Pressure 1 ( kPa )"></ion-input>
+                        <ion-input v-if="!p1Show" v-model="p1" type="number" placeholder="Pressure 1 ( kPa )"></ion-input>
                         <ion-input v-else type="number" :value=p1Show readonly></ion-input>
 
                         <ion-label>P<sub>2</sub> : </ion-label>
-                        <ion-input v-if="!p2Show" v-model="p2" type="number" placeholder="Enter Pressure 2 ( kPa )"></ion-input>
+                        <ion-input v-if="!p2Show" v-model="p2" type="number" placeholder="Pressure 2 ( kPa )"></ion-input>
                         <ion-input v-else type="number" :value=p2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&rho;<sub>1</sub> : </ion-label>
-                        <ion-input v-if="!rho1Show" v-model="rho1" type="number" placeholder="Enter Density 1 ( kg/m^3 )"></ion-input>
+                        <ion-input v-if="!rho1Show" v-model="rho1" type="number" placeholder="Density 1 ( kg/m^3 )"></ion-input>
                         <ion-input v-else type="number" :value=rho1Show readonly></ion-input>
 
                         <ion-label>&rho;<sub>2</sub> : </ion-label>
-                        <ion-input v-if="!rho2Show" v-model="rho2" type="number" placeholder="Enter Density 2 ( kg/m^3 )"></ion-input>
+                        <ion-input v-if="!rho2Show" v-model="rho2" type="number" placeholder="Density 2 ( kg/m^3 )"></ion-input>
                         <ion-input v-else type="number" :value=rho2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>V<sub>1</sub> : </ion-label>
-                        <ion-input v-if="!v1Show" v-model="v1" type="number" placeholder="Enter Velocity 1 ( m/s )"></ion-input>
+                        <ion-input v-if="!v1Show" v-model="v1" type="number" placeholder="Velocity 1 ( m/s )"></ion-input>
                         <ion-input v-else type="number" :value=v1Show readonly></ion-input>
 
                         <ion-label>V<sub>2</sub> : </ion-label>
-                        <ion-input v-if="!v2Show" v-model="v2" type="number" placeholder="Enter Velocity 2 ( m/s )"></ion-input>
+                        <ion-input v-if="!v2Show" v-model="v2" type="number" placeholder="Velocity 2 ( m/s )"></ion-input>
                         <ion-input v-else type="number" :value=v2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>z<sub>1</sub> : </ion-label>
-                        <ion-input v-if="!z1Show" v-model="z1" type="number" placeholder="Enter rel height 1 ( m )"></ion-input>
+                        <ion-input v-if="!z1Show" v-model="z1" type="number" placeholder="rel height 1 ( m )"></ion-input>
                         <ion-input v-else type="number" :value=z1Show readonly></ion-input>
 
                         <ion-label>z<sub>2</sub> : </ion-label>
-                        <ion-input v-if="!z2Show" v-model="z2" type="number" placeholder="Enter rel height 2 ( m )"></ion-input>
+                        <ion-input v-if="!z2Show" v-model="z2" type="number" placeholder="rel height 2 ( m )"></ion-input>
                         <ion-input v-else type="number" :value=z2Show readonly></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&#7715;<sub>t</sub> : </ion-label>
-                        <ion-input v-if="!turbineShow" v-model="turbine" type="number" placeholder="Enter Turbine Head ( m )"></ion-input>
+                        <ion-input v-if="!turbineShow" v-model="turbine" type="number" placeholder="Turbine Head ( m )"></ion-input>
                         <ion-input v-else type="number" :value=turbineShow readonly></ion-input>
 
                         <ion-label>&#7715;<sub>L</sub> : </ion-label>
-                        <ion-input v-if="!lossShow" v-model="loss" type="number" placeholder="Enter head loss ( m )"></ion-input>
+                        <ion-input v-if="!lossShow" v-model="loss" type="number" placeholder="head loss ( m )"></ion-input>
                         <ion-input v-else type="number" :value=lossShow readonly></ion-input>
                     </ion-item>
                 </ion-list>

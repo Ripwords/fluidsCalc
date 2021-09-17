@@ -6,7 +6,7 @@
                 <ion-list>
                     <ion-item>
                         <ion-label>Re : </ion-label>
-                        <ion-input v-model="re" type="number" placeholder="Enter Reynold's Number"></ion-input>
+                        <ion-input v-model="re" type="number" placeholder="Reynold's Number"></ion-input>
                     </ion-item>
                     <ion-item v-if="parseFloat(re) >= 2301">
                         <ion-label>Type of flow : </ion-label>
@@ -26,7 +26,7 @@
                 <ion-list v-if="re <= 2300">
                     <ion-item>
                         <ion-label>Eqn : </ion-label>
-                        <ion-input v-model="eqn" placeholder="Enter Friction Equation ( 64/Re )"></ion-input>
+                        <ion-input v-model="eqn" placeholder="Friction Equation ( 64/Re )"></ion-input>
                     </ion-item>
                 </ion-list>
 
@@ -42,11 +42,11 @@
                 <ion-list v-if="flow == 'turbC' || flow == 'turbH' && parseFloat(re) >= 2301">
                     <ion-item>
                         <ion-label>&epsilon; : </ion-label>
-                        <ion-input v-model="e" placeholder="Enter Roughness ( mm )"></ion-input>
+                        <ion-input v-model="e" placeholder="Roughness ( mm )"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>D : </ion-label>
-                        <ion-input v-model="d" placeholder="Enter Diameter ( m )"></ion-input>
+                        <ion-input v-model="d" placeholder="Diameter ( m )"></ion-input>
                     </ion-item>
                 </ion-list>
                 <ion-item>

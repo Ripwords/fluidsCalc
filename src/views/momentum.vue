@@ -17,12 +17,12 @@
                 <br>
                 <ion-item>
                     <ion-label>&beta;&nbsp; : </ion-label>
-                    <ion-input v-if="!betaShow" type="number" v-model="beta" placeholder="Enter Correction Factor"></ion-input>
+                    <ion-input v-if="!betaShow" type="number" v-model="beta" placeholder="Correction Factor"></ion-input>
                     <ion-input v-else type="number" :value=betaShow readonly></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label>&#7745; : </ion-label>
-                    <ion-input v-if="!mFRShow" type="number" v-model="mFR" placeholder="Enter Mass Flow Rate"></ion-input>
+                    <ion-input v-if="!mFRShow" type="number" v-model="mFR" placeholder="Mass Flow Rate"></ion-input>
                     <ion-input v-else type="number" :value=mFRShow readonly></ion-input>
                 </ion-item>
                 <ion-item>

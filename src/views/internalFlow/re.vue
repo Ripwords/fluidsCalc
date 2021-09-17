@@ -16,23 +16,23 @@
                     </ion-item>
                     <ion-item>
                         <ion-label>V<sub>avg</sub> : </ion-label>
-                        <ion-input v-model="vave" type="number" placeholder="Enter Average Velocity ( m/s )"></ion-input>
+                        <ion-input v-model="vave" type="number" placeholder="Average Velocity ( m/s )"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label>&nbsp;D&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-model="d" type="number" placeholder="Enter Hydraulic Diameter ( m )"></ion-input>
+                        <ion-input v-model="d" type="number" placeholder="Hydraulic Diameter ( m )"></ion-input>
                     </ion-item>
                     <ion-item v-if="selection == 'u'">
                         <ion-label>&nbsp;&rho;&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-model="rho" type="number" placeholder="Enter Fluid Density ( kg/m^3 )"></ion-input>
+                        <ion-input v-model="rho" type="number" placeholder="Fluid Density ( kg/m^3 )"></ion-input>
                     </ion-item>
                     <ion-item v-if="selection == 'u'">
                         <ion-label>&nbsp;&mu;&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-model="u" type="number" placeholder="Enter Dynamic Viscosity ( kg/ms )"></ion-input>
+                        <ion-input v-model="u" type="number" placeholder="Dynamic Viscosity ( kg/ms )"></ion-input>
                     </ion-item>
                     <ion-item v-if="selection == 'v'">
                         <ion-label>&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp; : </ion-label>
-                        <ion-input v-model="v" type="number" placeholder="Enter Kinematic Viscosity ( m^2/s )"></ion-input>
+                        <ion-input v-model="v" type="number" placeholder="Kinematic Viscosity ( m^2/s )"></ion-input>
                     </ion-item>
                 </ion-list>
                 <br>
