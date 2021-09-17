@@ -40,6 +40,7 @@
                 <br>
                 <ion-button color="dark" @click="clear()" id="clear">Clear</ion-button>
             </div>
+            <home-button></home-button>
         </ion-content>
     </ion-page>
 </template>
@@ -54,7 +55,7 @@ import {
     IonItem,
     IonLabel
 } from '@ionic/vue'
-
+import HomeButton from '../components/homeBut.vue'
 import {
     defineComponent
 } from 'vue'
@@ -71,6 +72,7 @@ export default defineComponent({
         IonItem,
         IonLabel,
         Header,
+        HomeButton
     },
     props: {
         title: {

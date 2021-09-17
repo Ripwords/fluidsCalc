@@ -58,6 +58,7 @@
                 <br>
                 <ion-button color="dark" @click="clear()" id="clear">Clear</ion-button>
             </div>
+            <home-button></home-button>
         </ion-content>
     </ion-page>
 </template>
@@ -80,6 +81,7 @@ import {
 } from 'vue'
 
 import Header from '../../components/header.vue'
+import HomeButton from '../../components/homeBut.vue'
 import nerdamer from 'nerdamer/all.min'
 
 export default defineComponent({
@@ -93,7 +95,8 @@ export default defineComponent({
         Header,
         IonSelect,
         IonSelectOption,
-        IonList
+        IonList,
+        HomeButton
     },
     data() {
         return {
