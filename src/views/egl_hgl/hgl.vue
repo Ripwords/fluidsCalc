@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Hydraulic Grade Line" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <img class="invert" src="/img/hgl.png">
                 <br>
                 <br>

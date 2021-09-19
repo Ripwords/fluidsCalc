@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Energy Grade Line" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <img class="invert" src="/img/egl.png">
                 <br>
                 <br>

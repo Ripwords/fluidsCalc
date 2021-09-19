@@ -1,8 +1,10 @@
 <template>
     <ion-page>
         <Header :title="title" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
+            <br>
+            <br>
             <div id="container">
                 <img class="invert" :src="imgPath" style="padding-left: 2%; padding-right: 2%;">
                 <br>

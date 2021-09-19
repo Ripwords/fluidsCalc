@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Laminar Properties" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <ion-item>
                     <ion-label>Property : </ion-label>
                     <ion-select v-model="selection" interface="popover">

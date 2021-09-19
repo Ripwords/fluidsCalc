@@ -15,7 +15,20 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet,
-    Menu
+    Menu,
   }
 });
 </script>
+
+<style>
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+ion-content {
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+ }
+</style>

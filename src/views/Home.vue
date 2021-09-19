@@ -1,8 +1,8 @@
 <template>
 	<ion-page>
 		<Header title="Fluids Calculator"></Header>
+		<Exit></Exit>
 		<ion-content :fullscreen="true">
-			<Exit></Exit>
 			<div id="container">
 				<ion-reorder-group @ionItemReorder="doReorder($event)" :disabled="reord">
 					<ion-card v-for="num in order" :key="num" button @click="menuNavigation(cards[num].path)">

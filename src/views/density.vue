@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Density" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <img class="invert" src="/img/density.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>

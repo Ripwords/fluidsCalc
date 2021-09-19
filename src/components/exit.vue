@@ -38,5 +38,6 @@ export default defineComponent({
 <style scoped>
 #exit {
     -webkit-app-region: no-drag;
+    margin-top: 65%;
 }
 </style>

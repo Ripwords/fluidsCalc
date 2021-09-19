@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Internal Flow" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <ion-list>
                     <ion-item>
                         <ion-label>Re : </ion-label>

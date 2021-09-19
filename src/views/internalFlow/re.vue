@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Internal Flow" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+            <br>
+            <br>
                 <img class="invert" src="/img/reynolds.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>

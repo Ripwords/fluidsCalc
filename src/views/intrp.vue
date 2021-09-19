@@ -1,9 +1,11 @@
 <template>
     <ion-page>
         <Header title="Interpolator" :clear="clear"></Header>
+        <Exit></Exit>
         <ion-content :fullscreen="true">
-            <Exit></Exit>
             <div id="container">
+                <br>
+                <br>
                 <img class="invert" src="/img/equation.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>
