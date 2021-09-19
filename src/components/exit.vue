@@ -1,6 +1,6 @@
 <template>
     <ion-fab horizontal="end" vertical="top" edge slot="fixed">
-        <ion-fab-button @click="appQuit()" color="light" id="exit">
+        <ion-fab-button @click="appQuit()" color="light" id="exit" size="small">
         <ion-icon :icon="exitOutline"></ion-icon>
         </ion-fab-button>
     </ion-fab>
