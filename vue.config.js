@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: "/fluidsCalc/",
+	publicPath: "",
 	configureWebpack: {
 		devServer: {
 			historyApiFallback: true,
