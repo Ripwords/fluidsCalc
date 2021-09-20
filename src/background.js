@@ -58,7 +58,7 @@ async function createWindow() {
 		}
 	})
 
-	if (process.platform !== "darwin") {
+	if (process.platform !== "darwin" && !isDevelopment) {
 		autoUpdater.on("update-downloaded", () => {
 			const response = dialog.showMessageBoxSync(win, {
 				title: "Updater",
@@ -110,7 +110,9 @@ app.on("activate", () => {
 })
 
 app.on("ready", function() {
-	autoUpdater.checkForUpdates()
+	if (!isDevelopment) {
+		autoUpdater.checkForUpdates()
+	}
 })
 
 app.on("ready", async () => {
