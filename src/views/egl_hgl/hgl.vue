@@ -4,8 +4,6 @@
         <Exit></Exit>
         <ion-content :fullscreen="true">
             <div id="container">
-                <br>
-                <br>
                 <img class="invert" src="/img/hgl.png">
                 <br>
                 <br>

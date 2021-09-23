@@ -4,8 +4,6 @@
         <Exit></Exit>
         <ion-content :fullscreen="true">
             <div id="container">
-                <br>
-                <br>
                 <ion-list>
                     <ion-item>
                         <ion-label>Re : </ion-label>

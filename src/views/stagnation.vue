@@ -4,8 +4,6 @@
         <Exit></Exit>
         <ion-content :fullscreen="true">
             <div id="container">
-                <br>
-                <br>
                 <img class="invert" src="/img/stagnation.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
                 <br>

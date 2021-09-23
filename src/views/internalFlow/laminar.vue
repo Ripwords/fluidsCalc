@@ -4,8 +4,6 @@
         <Exit></Exit>
         <ion-content :fullscreen="true">
             <div id="container">
-                <br>
-                <br>
                 <ion-item>
                     <ion-label>Property : </ion-label>
                     <ion-select v-model="selection" interface="popover">

@@ -3,8 +3,6 @@
         <Header title="Energy Equation" :clear="clear"></Header>
         <Exit></Exit>
         <ion-content :fullscreen="true">
-            <br>
-            <br>
             <div id="container">
                 <img class="invert" src="/img/energyEqn.png" style="padding-left: 2%; padding-right: 2%;">
                 <br>
