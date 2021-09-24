@@ -11,5 +11,12 @@ module.exports = {
 		msTileColor: "#000000",
 		appleMobileWebAppCapable: 'yes',
 		appleMobileWebAppStatusBarStyle: "black",
+		shortcuts: [
+			{
+				name: "Interpolator",
+				short_name: "Intrp",
+				description: "Interpolates values provided"
+			}
+		]
 	}
 }
