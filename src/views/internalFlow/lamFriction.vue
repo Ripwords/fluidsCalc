@@ -39,7 +39,7 @@
                 <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
                 <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
                 <br v-if="flow == 'turbC' && parseFloat(re) >= 2301">
-                <ion-list v-if="flow == 'turbC' || flow == 'turbH' && parseFloat(re) >= 2301">
+                <ion-list v-if="(flow == 'turbC' || flow == 'turbH') && parseFloat(re) >= 2301">
                     <ion-item>
                         <ion-label>&epsilon; : </ion-label>
                         <ion-input v-model="e" placeholder="Roughness ( mm )"></ion-input>
