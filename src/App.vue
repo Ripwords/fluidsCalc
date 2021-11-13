@@ -16,6 +16,9 @@ export default defineComponent({
     IonApp,
     IonRouterOutlet,
     Menu
+  },
+  mounted() {
+    this.$router.replace("/home")
   }
 });
 </script>
